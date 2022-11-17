@@ -10,7 +10,10 @@ keyboard = KMKKeyboard()
 # flake8: noqa
 keyboard.keymap = [
     [  # QWERTY
-        KC.ENT, KC.J
+        KC.Y, KC.U, KC.I, KC.O, KC.P, KC.BACKSLASH,
+        KC.H, KC.J, KC.k, KC.L, KC.SEMICOLON, KC.QUOTE,
+        KC.N, KC.M, KC.COMMA, KC.DOT, KC.SLASH, KC.LSFT,
+                              KC.LALT, KC.ENTER, KC.LCTL,
     ]
 ]
 

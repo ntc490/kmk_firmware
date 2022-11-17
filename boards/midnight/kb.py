@@ -1,35 +1,9 @@
 # Nathan Crapo's Midnight board
 
 import board
-
 from kmk.kmk_keyboard import KMKKeyboard as _KMKKeyboard
-
 from kmk.scanners.keypad import KeysScanner
-
 from storage import getmount
-
-#ALT board.GP16,
-#ENTER board.GP18,
-#CTRL board.GP19,
-#Y board.GP20,
-#H board.GP21,
-#N board.GP22,
-#U board.GP26,
-#J board.GP27,
-#M board.GP28,
-# SHFT    board.GP4,
-# "    board.GP5,
-# \    board.GP6,
-# /    board.GP7,
-# ;    board.GP8,
-# P    board.GP9,
-# >    board.GP10,
-# L    board.GP11,
-# O    board.GP12,
-# <    board.GP13,
-# K    board.GP14,
-# I    board.GP15,
-
 
 # fmt: off
 _KEY_CFG_RIGHT = [

@@ -10,7 +10,7 @@ _KEY_CFG_RIGHT = [
     board.GP20, board.GP26, board.GP15, board.GP12, board.GP9,  board.GP6,
     board.GP21, board.GP27, board.GP14, board.GP11, board.GP8,  board.GP5,
     board.GP22, board.GP28, board.GP13, board.GP10, board.GP7,  board.GP4,
-                                        board.GP16, board.GP18, board.GP19
+    board.GP16, board.GP18, board.GP19
 ]
 # Fmt: on
 

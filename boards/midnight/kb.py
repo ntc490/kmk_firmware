@@ -6,6 +6,13 @@ from kmk.scanners.keypad import KeysScanner
 from storage import getmount
 
 # fmt: off
+_KEY_CFG_LEFT = [
+    board.GP6,  board.GP9,  board.GP12, board.GP15, board.GP26, board.GP20,
+    board.GP5,  board.GP8,  board.GP11, board.GP14, board.GP27, board.GP21,
+    board.GP4,  board.GP7,  board.GP10, board.GP13, board.GP28, board.GP22,
+                                        board.GP19, board.GP18, board.GP17
+]
+
 _KEY_CFG_RIGHT = [
     board.GP20, board.GP26, board.GP15, board.GP12, board.GP9,  board.GP6,
     board.GP21, board.GP27, board.GP14, board.GP11, board.GP8,  board.GP5,
@@ -17,7 +24,7 @@ _KEY_CFG_RIGHT = [
 class KMKKeyboard(_KMKKeyboard):
     def __init__(self):
         # create and register the scanner
-        self.matrix = KeysScanner(_KEY_CFG_RIGHT)
+        self.matrix = KeysScanner(_KEY_CFG_LEFT)
 
     # flake8: noqa
     # fmt: off

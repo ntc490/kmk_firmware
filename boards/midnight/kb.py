@@ -16,7 +16,7 @@ _KEY_CFG_LEFT = [
     board.GP6,  board.GP9,  board.GP12, board.GP15, board.GP26, board.GP20,
     board.GP5,  board.GP8,  board.GP11, board.GP14, board.GP27, board.GP21,
     board.GP4,  board.GP7,  board.GP10, board.GP13, board.GP28, board.GP22,
-                                        board.GP19, board.GP18, board.GP2,
+                                        board.GP19, board.GP18, board.GP3,
 ]
 # Fmt: on
 

@@ -1,0 +1,34 @@
+- TODO:
+  - Put UART on its own set of pins, define uart_flip=False, and
+    auto-detect side on our own, then pass that into Split module.
+    - Simplifies Split definition
+    - Enables full-duplex sync between sides
+    - Simplifies KeysScanner configuration
+    - Enables connecting USB from either side? (but def not both)
+  - Side detection
+    - set with a file?
+    - set with mount name?
+    - set with a pin pull-down? (pins are scarce resource)
+  - Rename main.py to code.py
+  - Add a README.md
+  - 
+
+- Questions
+  - How is the matrix setup?
+  - We only run a single matrix for our keyboard?
+
+- HOW IT WORKS
+  - coord mapping is determined by the KMK Keyboard class, unless
+    Split() is used as a module. Then it must determine the
+    coord_mapping.
+  - _on_matrix_changed calls _find_key_in_map(), which gets the index
+    of the key from the coord_mapping.
+  - coord_mapping contains key numbers. When a key is
+    pressed/released, we find the index for the key number in the
+    coord_mapping.
+  - split_flip only works for matrix-style keyboards with col and row
+    pins, so you have to flip the keys in the coord_mapping instead in
+    a diode-less setup.
+  - key number -> coord_map (index from key#) -> keymap (KC from index)
+  - key numbers are just a 'range' from offset to offset + number of
+    keys in scanner.

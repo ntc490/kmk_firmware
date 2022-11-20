@@ -7,9 +7,6 @@ from kmk.scanners.keypad import KeysScanner
 from kmk.modules.split import Split, SplitSide
 from storage import getmount
 
-# Must change this per side. Could we create a new file to contain it maybe?
-leftSide = True
-
 # fmt: off
 # The right is a mirror image of the left side
 _KEY_CFG_LEFT = [
@@ -20,26 +17,25 @@ _KEY_CFG_LEFT = [
 ]
 # Fmt: on
 
-# Note: might eventually change the Split obj - set uart_flip=False
-# and define data_pin=GP17 (RX), data_pin2=GP16 (TX). But need to
-# identify and provide side or let Split auto-detect side. Split
-# determines side by looking at the last char of mount name 'L' is
-# left, 'R' is right, BUT then 'target' is only defined by if USB is
-# connected or not. Connecting USB to the wrong side would yield a
-# non-working setup.
-
-if (leftSide):
-    split = Split(
-        data_pin=board.GP16,
-        split_side=SplitSide.LEFT,
-        split_target_left=False,
-    )
+# Do side auto-detect like 'Split' here so we can hard-code the target side,
+# too. The target side can currently only be the right side.
+drive_name = getmount('/').label
+if drive_name.endswith('L'):
+    split_side = SplitSide.LEFT
+    print(f'Autodetected LEFT keyboard - Last letter of {drive_name} is L - USB: non-target')
 else:
-    split = Split(
-        data_pin=board.GP17,
-        split_side=SplitSide.RIGHT,
-        split_target_left=False,
-    )
+    split_side = SplitSide.RIGHT
+    print('Autodetected RIGHT keyboard - target side')
+
+# Note: Must change the volume name to end in an 'L' for left side and 'R' for
+# right side auto-detection.
+split = Split(
+    uart_flip=False,
+    data_pin=board.GP17,
+    data_pin2=board.GP16,
+    split_side=split_side,
+    split_target_left=False,
+)
 
 class KMKKeyboard(_KMKKeyboard):
     def __init__(self):

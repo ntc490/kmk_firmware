@@ -14,7 +14,7 @@ keyboard.modules.extend([ Layers(), ModTap() ])
 
 ______ = KC.TRNS
 XXXXXX = KC.NO
-TAP_TIME = 100
+TAP_TIME = 300
 LGUI_BS = KC.MT(KC.BACKSPACE, KC.LGUI, prefer_hold=False, tap_time=TAP_TIME)
 NUM_TAB = KC.LT(1, KC.TAB, prefer_hold=True, tap_time=TAP_TIME)
 PWR_ESC = KC.LT(2, KC.ESC, tap_time=TAP_TIME)

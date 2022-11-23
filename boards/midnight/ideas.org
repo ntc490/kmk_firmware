@@ -1,21 +1,22 @@
 - TODO:
+  - Fix pinky keys - reduce stagger
+  - Rename main.py to code.py
+  - Add a README.md
+  - Add "jiggler" module
+  - Add Colemak layer and option to switch to it as a default layer
+  - Morse code beeper/vibrator support
+  - Add status LEDs
   - Put UART on its own set of pins, define uart_flip=False, and
-    auto-detect side on our own, then pass that into Split module.
+    auto-detect side on our own, then pass that into Split
+    module. [done]
     - Simplifies Split definition
     - Enables full-duplex sync between sides
     - Simplifies KeysScanner configuration
     - Enables connecting USB from either side? (but def not both)
-  - Side detection
+  - Side detection [done]
     - set with a file?
-    - set with mount name?
+    - set with mount name? ***
     - set with a pin pull-down? (pins are scarce resource)
-  - Rename main.py to code.py
-  - Add a README.md
-  - 
-
-- Questions
-  - How is the matrix setup?
-  - We only run a single matrix for our keyboard?
 
 - HOW IT WORKS
   - coord mapping is determined by the KMK Keyboard class, unless

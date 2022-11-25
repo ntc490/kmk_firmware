@@ -19,18 +19,21 @@ NUM_LAYER = 2
 PWR_LAYER = 3
 FUNC_LAYER = 4
 MOUSE_LAYER = 5
+TAP_TIME = 300
 
+# Simple Key definitions
 ______ = KC.TRNS
 XXXXXX = KC.NO
-TAP_TIME = 300
+NEXTWIN = KC.LALT(KC.TILD)
+C_A_DEL = KC.LCTL(KC.LALT(KC.DEL))
+
+# Fancy mod-tap/layer-tap multi-function keys
 LGUI_ENTER = KC.MT(KC.ENTER, KC.LGUI, prefer_hold=False, tap_time=TAP_TIME)
 NUM_TAB = KC.LT(NUM_LAYER, KC.TAB, prefer_hold=True, tap_time=TAP_TIME)
 PWR_ESC = KC.LT(PWR_LAYER, KC.ESC, tap_time=TAP_TIME)
 FUNC_Z = KC.LT(FUNC_LAYER, KC.Z, prefer_hold=False, tap_time=TAP_TIME)
 HYPR_SPC = KC.MT(KC.SPACE, KC.HYPR, prefer_hold=False, tap_time=TAP_TIME)
-# TODO: Use a mod-tap or layer-tap on ENTER as well?
-NEXTWIN = KC.LALT(KC.TILD)
-C_A_DEL = KC.LCTL(KC.LALT(KC.DEL))
+
 
 # --------------- Key maps ---------------
 

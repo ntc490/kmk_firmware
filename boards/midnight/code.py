@@ -34,6 +34,11 @@ PWR_ESC = KC.LT(PWR_LAYER, KC.ESC, tap_time=TAP_TIME)
 FUNC_Z = KC.LT(FUNC_LAYER, KC.Z, prefer_hold=False, tap_time=TAP_TIME)
 HYPR_SPC = KC.MT(KC.SPACE, KC.HYPR, prefer_hold=False, tap_time=TAP_TIME)
 
+# Left and right shift work normally when held. Left shift tap does a
+# one-shot number layer, right shift tap does a one-shot number layer
+# with shift (symbols)
+RSFTNUM_RSFT = KC.MT(KC.OS(KC.LM(NUM_LAYER, KC.RSFT)), KC.RSFT, prefer_hold=True, tap_time=TAP_TIME)
+NUM_LSFT = KC.MT(KC.OS(KC.MO(NUM_LAYER)), KC.LSFT, prefer_hold=True, tap_time=TAP_TIME)
 
 # --------------- Key maps ---------------
 
@@ -43,13 +48,13 @@ keyboard.keymap = [
     [  # QWERTY
         PWR_ESC, KC.Q,    KC.W,    KC.E,    KC.R,    KC.T,             KC.Y, KC.U, KC.I,     KC.O,   KC.P,         KC.BSLASH,
         NUM_TAB, KC.A,    KC.S,    KC.D,    KC.F,    KC.G,             KC.H, KC.J, KC.K,     KC.L,   KC.SEMICOLON, KC.QUOTE,
-        KC.LSFT, FUNC_Z,  KC.X,    KC.C,    KC.V,    KC.B,             KC.N, KC.M, KC.COMMA, KC.DOT, KC.SLASH,     KC.OS(KC.LM(NUM_LAYER, KC.LSFT)),
+        NUM_LSFT,FUNC_Z,  KC.X,    KC.C,    KC.V,    KC.B,             KC.N, KC.M, KC.COMMA, KC.DOT, KC.SLASH,     RSFTNUM_RSFT,
                                KC.BACKSPACE, KC.LCTL, KC.LALT,      KC.LALT, LGUI_ENTER, HYPR_SPC,
     ],
     [  # Colemak
         PWR_ESC, KC.Q,    KC.W,    KC.F,    KC.P,    KC.B,             KC.J, KC.L, KC.U,     KC.Y,   KC.SEMICOLON, KC.BSLASH,
         NUM_TAB, KC.A,    KC.R,    KC.S,    KC.T,    KC.G,             KC.M, KC.N, KC.E,     KC.I,   KC.O,         KC.QUOTE,
-        KC.LSFT, FUNC_Z,  KC.X,    KC.C,    KC.D,    KC.V,             KC.K, KC.H, KC.COMMA, KC.DOT, KC.SLASH,     KC.OS(KC.LM(NUM_LAYER, KC.LSFT)),
+        NUM_LSFT,FUNC_Z,  KC.X,    KC.C,    KC.D,    KC.V,             KC.K, KC.H, KC.COMMA, KC.DOT, KC.SLASH,     RSFTNUM_RSFT,
                                KC.BACKSPACE, KC.LCTL, KC.LALT,      KC.LALT, LGUI_ENTER, HYPR_SPC,
     ],
     [  # Numbers

@@ -36,7 +36,7 @@ keyboard.keymap = [
                                     LGUI_BS, KC.LCTL, KC.LALT,      KC.LALT, KC.ENTER, HYPR_SPC,
     ],
     [  # Numbers
-        KC.ESC,  XXXXXX,  XXXXXX, XXXXXX, KC.LCBR, KC.RCBR,            KC.EQUAL, KC.N7, KC.N8, KC.N9, KC.MINUS, ______,
+        KC.ESC,  XXXXXX,  XXXXXX, XXXXXX, KC.LCBR, KC.RCBR,            KC.EQUAL, KC.N7, KC.N8, KC.N9, KC.UNDS,  ______,
         ______,  KC.TILD, XXXXXX, XXXXXX, KC.LPRN, KC.RPRN,            KC.MINUS, KC.N4, KC.N5, KC.N6, KC.PLUS,  ______,
         ______,  KC.GRV,  XXXXXX, XXXXXX, KC.LBRC, KC.RBRC,            KC.DOT,   KC.N1, KC.N2, KC.N3, KC.SLSH,  ______,
                                         ______, ______, ______,    ______, ______, KC.N0,

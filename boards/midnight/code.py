@@ -13,13 +13,19 @@ keyboard.modules.extend([ Layers(), ModTap(), OneShot() ])
 
 # --------------- Key aliases ---------------
 
+QWERTY_LAYER = 0
+NUM_LAYER = 1
+PWR_LAYER = 2
+FUNC_LAYER = 3
+MOUSE_LAYER = 4
+
 ______ = KC.TRNS
 XXXXXX = KC.NO
 TAP_TIME = 300
 LGUI_ENTER = KC.MT(KC.ENTER, KC.LGUI, prefer_hold=False, tap_time=TAP_TIME)
-NUM_TAB = KC.LT(1, KC.TAB, prefer_hold=True, tap_time=TAP_TIME)
-PWR_ESC = KC.LT(2, KC.ESC, tap_time=TAP_TIME)
-FUNC_Z = KC.LT(3, KC.Z, prefer_hold=False, tap_time=TAP_TIME)
+NUM_TAB = KC.LT(NUM_LAYER, KC.TAB, prefer_hold=True, tap_time=TAP_TIME)
+PWR_ESC = KC.LT(PWR_LAYER, KC.ESC, tap_time=TAP_TIME)
+FUNC_Z = KC.LT(FUNC_LAYER, KC.Z, prefer_hold=False, tap_time=TAP_TIME)
 HYPR_SPC = KC.MT(KC.SPACE, KC.HYPR, prefer_hold=False, tap_time=TAP_TIME)
 # TODO: Use a mod-tap or layer-tap on ENTER as well?
 NEXTWIN = KC.LALT(KC.TILD)
@@ -33,7 +39,7 @@ keyboard.keymap = [
     [  # QWERTY
         PWR_ESC, KC.Q,    KC.W,    KC.E,    KC.R,    KC.T,             KC.Y, KC.U, KC.I,     KC.O,   KC.P,         KC.BSLASH,
         NUM_TAB, KC.A,    KC.S,    KC.D,    KC.F,    KC.G,             KC.H, KC.J, KC.K,     KC.L,   KC.SEMICOLON, KC.QUOTE,
-        KC.LSFT, FUNC_Z,  KC.X,    KC.C,    KC.V,    KC.B,             KC.N, KC.M, KC.COMMA, KC.DOT, KC.SLASH,     KC.OS(KC.LM(2, KC.LSFT)),
+        KC.LSFT, FUNC_Z,  KC.X,    KC.C,    KC.V,    KC.B,             KC.N, KC.M, KC.COMMA, KC.DOT, KC.SLASH,     KC.OS(KC.LM(NUM_LAYER, KC.LSFT)),
                                KC.BACKSPACE, KC.LCTL, KC.LALT,      KC.LALT, LGUI_ENTER, HYPR_SPC,
     ],
     [  # Numbers

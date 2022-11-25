@@ -18,7 +18,7 @@ TAP_TIME = 300
 LGUI_BS = KC.MT(KC.BACKSPACE, KC.LGUI, prefer_hold=False, tap_time=TAP_TIME)
 NUM_TAB = KC.LT(1, KC.TAB, prefer_hold=True, tap_time=TAP_TIME)
 PWR_ESC = KC.LT(2, KC.ESC, tap_time=TAP_TIME)
-FUNC_Z = KC.LT(3, KC.Z, prefer_hold=False, tap_time=(TAP_TIME*2))
+FUNC_Z = KC.LT(3, KC.Z, prefer_hold=False, tap_time=TAP_TIME)
 HYPR_SPC = KC.MT(KC.SPACE, KC.HYPR, prefer_hold=False, tap_time=TAP_TIME)
 # TODO: Use a mod-tap or layer-tap on ENTER as well?
 NEXTWIN = KC.LALT(KC.TILD)

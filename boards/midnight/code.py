@@ -4,11 +4,12 @@ from kb import KMKKeyboard
 from kmk.keys import KC
 from kmk.modules.layers import Layers
 from kmk.modules.modtap import ModTap
+from kmk.modules.oneshot import OneShot
 
 keyboard = KMKKeyboard()
 
 
-keyboard.modules.extend([ Layers(), ModTap() ])
+keyboard.modules.extend([ Layers(), ModTap(), OneShot() ])
 
 # --------------- Key aliases ---------------
 
@@ -32,7 +33,7 @@ keyboard.keymap = [
     [  # QWERTY
         PWR_ESC, KC.Q,    KC.W,    KC.E,    KC.R,    KC.T,             KC.Y, KC.U, KC.I,     KC.O,   KC.P,         KC.BSLASH,
         NUM_TAB, KC.A,    KC.S,    KC.D,    KC.F,    KC.G,             KC.H, KC.J, KC.K,     KC.L,   KC.SEMICOLON, KC.QUOTE,
-        KC.LSFT, FUNC_Z,  KC.X,    KC.C,    KC.V,    KC.B,             KC.N, KC.M, KC.COMMA, KC.DOT, KC.SLASH,     KC.RSFT,
+        KC.LSFT, FUNC_Z,  KC.X,    KC.C,    KC.V,    KC.B,             KC.N, KC.M, KC.COMMA, KC.DOT, KC.SLASH,     KC.OS(KC.LM(2, KC.LSFT)),
                                KC.BACKSPACE, KC.LCTL, KC.LALT,      KC.LALT, LGUI_ENTER, HYPR_SPC,
     ],
     [  # Numbers

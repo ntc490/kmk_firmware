@@ -19,7 +19,7 @@ NUM_LAYER = 2
 PWR_LAYER = 3
 FUNC_LAYER = 4
 MOUSE_LAYER = 5
-TAP_TIME = 300
+TAP_TIME = 200
 
 # Simple Key definitions
 ______ = KC.TRNS

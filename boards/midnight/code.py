@@ -28,7 +28,7 @@ NEXTWIN = KC.LGUI(KC.GRAVE)
 C_A_DEL = KC.LCTL(KC.LALT(KC.DEL))
 
 # Fancy mod-tap/layer-tap multi-function keys
-LGUI_ENTER = KC.MT(KC.ENTER, KC.LGUI, prefer_hold=False, tap_time=TAP_TIME)
+LGUI_ENTER = KC.MT(KC.ENTER, KC.LGUI, prefer_hold=True, tap_time=TAP_TIME)
 NUM_TAB = KC.LT(NUM_LAYER, KC.TAB, prefer_hold=True, tap_time=TAP_TIME)
 PWR_ESC = KC.LT(PWR_LAYER, KC.ESC, prefer_hold=True, tap_time=TAP_TIME)
 FUNC_Z = KC.LT(FUNC_LAYER, KC.Z, prefer_hold=False, tap_time=TAP_TIME)

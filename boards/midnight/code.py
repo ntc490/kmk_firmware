@@ -58,9 +58,9 @@ keyboard.keymap = [
                                KC.BACKSPACE, KC.LCTL, KC.LALT,      KC.LALT, LGUI_ENTER, HYPR_SPC,
     ],
     [  # Numbers
-        KC.ESC,  XXXXXX,  XXXXXX, XXXXXX, KC.LCBR, KC.RCBR,            KC.EQUAL, KC.N7, KC.N8, KC.N9, KC.UNDS,  ______,
-        ______,  XXXXXX,  XXXXXX, KC.TILD,KC.LPRN, KC.RPRN,            KC.MINUS, KC.N4, KC.N5, KC.N6, KC.PLUS,  ______,
-        ______,  XXXXXX,  XXXXXX, KC.GRV, KC.LBRC, KC.RBRC,            KC.DOT,   KC.N1, KC.N2, KC.N3, KC.SLSH,  ______,
+        KC.ESC,  XXXXXX,  XXXXXX, KC.LCBR, KC.RCBR, KC.TILD,           KC.EQUAL, KC.N7, KC.N8, KC.N9, KC.UNDS,  ______,
+        ______,  XXXXXX,  XXXXXX, KC.LPRN, KC.RPRN, XXXXXX,            KC.MINUS, KC.N4, KC.N5, KC.N6, KC.PLUS,  ______,
+        ______,  XXXXXX,  KC.GRV, KC.LBRC, KC.RBRC, XXXXXX,            KC.DOT,   KC.N1, KC.N2, KC.N3, KC.SLSH,  ______,
                                         ______, ______, ______,    ______, ______, KC.N0,
     ],
     [  # Power User

@@ -24,7 +24,7 @@ TAP_TIME = 300
 # Simple Key definitions
 ______ = KC.TRNS
 XXXXXX = KC.NO
-NEXTWIN = KC.LALT(KC.TILD)
+NEXTWIN = KC.LGUI(KC.GRAVE)
 C_A_DEL = KC.LCTL(KC.LALT(KC.DEL))
 
 # Fancy mod-tap/layer-tap multi-function keys

@@ -65,6 +65,7 @@ keyboard.keymap = [
         ______,  XXXXXX,  XXXXXX, KC.LBRC, KC.RBRC, XXXXXX,            KC.DOT,   KC.N1, KC.N2, KC.N3, KC.SLSH,  ______,
                                         ______, ______, ______,    ______, ______, KC.N0,
     ],
+    # TODO: add mouse keys to left-hand side of power user map
     [  # Power User
         ______,  ______,  ______, ______, ______,  ______,             ______,  KC.PGDN, KC.PGUP,______,  ______,  ______,
         KC.TAB,  ______,  ______, ______, ______,  ______,             KC.LEFT, KC.DOWN, KC.UP,  KC.RIGHT,______,  ______,

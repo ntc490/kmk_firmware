@@ -26,6 +26,8 @@ ______ = KC.TRNS
 XXXXXX = KC.NO
 NEXTWIN = KC.LGUI(KC.GRAVE)
 C_A_DEL = KC.LCTL(KC.LALT(KC.DEL))
+QWERTY = KC.DF(QWERTY_LAYER)
+COLEMK = KC.DF(COLEMAK_LAYER)
 
 # Fancy mod-tap/layer-tap multi-function keys
 LGUI_ENTER = KC.MT(KC.ENTER, KC.LGUI, prefer_hold=True, tap_time=TAP_TIME)
@@ -71,7 +73,7 @@ keyboard.keymap = [
     ],
     [  # Function keys
         XXXXXX,  XXXXXX,  XXXXXX, XXXXXX, XXXXXX, XXXXXX,              KC.HOME,  KC.F7,   KC.F8,  KC.F9,  KC.F10,  KC.DEL,
-        XXXXXX,  XXXXXX,  XXXXXX, XXXXXX, KC.DF(QWERTY_LAYER), KC.DF(COLEMAK_LAYER),              KC.END,   KC.F4,   KC.F5,  KC.F6,  KC.F11,  KC.PSCREEN,
+        XXXXXX,  XXXXXX,  XXXXXX, XXXXXX, QWERTY, COLEMK,              KC.END,   KC.F4,   KC.F5,  KC.F6,  KC.F11,  KC.PSCREEN,
         XXXXXX,  XXXXXX,  XXXXXX, KC.CAPS,XXXXXX, XXXXXX,              KC.INS,   KC.F1,   KC.F2,  KC.F3,  KC.F12,  C_A_DEL,
                                         ______, ______, ______,    ______, ______, ______,
     ],

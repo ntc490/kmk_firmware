@@ -65,7 +65,7 @@ qwerty.right(
     KC.Y,       KC.U,       KC.I,       KC.O,       KC.P,         KC.BSLASH,
     KC.H,       KC.J,       KC.K,       KC.L,       KC.SEMICOLON, KC.QUOTE,
     KC.N,       GUI_M,      KC.COMMA,   KC.DOT,     KC.SLASH,     RSFTNUM_RSFT,
-  KC.LALT, LGUI_ENTER, HYPR_SPC,
+  KC.LSFT, LGUI_ENTER, HYPR_SPC,
 )
 
 colemak.left(
@@ -78,7 +78,7 @@ colemak.right(
     KC.J,       KC.L,       KC.U,       KC.Y,       KC.SEMICOLON, KC.BSLASH,
     KC.M,       KC.N,       KC.E,       KC.I,       KC.O,         KC.QUOTE,
     KC.K,       KC.H,       KC.COMMA,   KC.DOT,     KC.SLASH,     RSFTNUM_RSFT,
-  KC.LALT, LGUI_ENTER, HYPR_SPC,
+  KC.LSFT, LGUI_ENTER, HYPR_SPC,
 )
 
 numbers.left(

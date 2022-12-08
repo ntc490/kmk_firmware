@@ -19,7 +19,6 @@ COLEMAK_LAYER = 1
 NUM_LAYER = 2
 PWR_LAYER = 3
 FUNC_LAYER = 4
-MOUSE_LAYER = 5
 TAP_TIME = 200
 
 # Simple Key definitions
@@ -29,6 +28,13 @@ NEXTWIN = KC.LGUI(KC.GRAVE)
 C_A_DEL = KC.LCTL(KC.LALT(KC.DEL))
 QWERTY = KC.DF(QWERTY_LAYER)
 COLEMK = KC.DF(COLEMAK_LAYER)
+GUI_T = KC.MT(KC.T, KC.LGUI(KC.T), prefer_hold=False, tap_time=300)
+GUI_F = KC.MT(KC.F, KC.LGUI(KC.F), prefer_hold=False, tap_time=300)
+GUI_X = KC.MT(KC.X, KC.LGUI(KC.X), prefer_hold=False, tap_time=300)
+GUI_C = KC.MT(KC.C, KC.LGUI(KC.C), prefer_hold=False, tap_time=300)
+GUI_V = KC.MT(KC.V, KC.LGUI(KC.V), prefer_hold=False, tap_time=300)
+GUI_L = KC.MT(KC.L, KC.LGUI(KC.L), prefer_hold=False, tap_time=300)
+GUI_M = KC.MT(KC.M, KC.LGUI(KC.M), prefer_hold=False, tap_time=300)
 
 # Fancy mod-tap/layer-tap multi-function keys
 LGUI_ENTER = KC.MT(KC.ENTER, KC.LGUI, prefer_hold=True, tap_time=TAP_TIME)
@@ -52,15 +58,15 @@ power_user = Mapper()
 func_keys = Mapper()
 
 qwerty.left(
-    PWR_ESC,    KC.Q,       KC.W,       KC.E,       KC.R,       KC.T,
-    NUM_TAB,    KC.A,       KC.S,       KC.D,       KC.F,       KC.G,
-    NUM_LSFT,   FUNC_Z,     KC.X,       KC.C,       KC.V,       KC.B,
+    PWR_ESC,    KC.Q,       KC.W,       KC.E,       KC.R,       GUI_T,
+    NUM_TAB,    KC.A,       KC.S,       KC.D,       GUI_F,      KC.G,
+    NUM_LSFT,   FUNC_Z,     GUI_X,      GUI_C,      GUI_V,      KC.B,
                                                   KC.BACKSPACE, KC.LCTL, KC.LALT
 )
 qwerty.right(
     KC.Y,       KC.U,       KC.I,       KC.O,       KC.P,         KC.BSLASH,
-    KC.H,       KC.J,       KC.K,       KC.L,       KC.SEMICOLON, KC.QUOTE,
-    KC.N,       KC.M,       KC.COMMA,   KC.DOT,     KC.SLASH,     RSFTNUM_RSFT,
+    KC.H,       KC.J,       KC.K,       GUI_L,      KC.SEMICOLON, KC.QUOTE,
+    KC.N,       GUI_M,      KC.COMMA,   KC.DOT,     KC.SLASH,     RSFTNUM_RSFT,
   KC.LALT, LGUI_ENTER, HYPR_SPC,
 )
 

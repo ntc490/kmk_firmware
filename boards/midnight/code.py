@@ -97,7 +97,7 @@ power_user.left(
                                                   _______, _______, _______,
 )
 power_user.right(
-    _______,    KC.PGDN,    KC.PGUP,    XXXXXXX,    XXXXXXX,    XXXXXXX,
+    XXXXXXX,    KC.PGDN,    KC.PGUP,    XXXXXXX,    XXXXXXX,    XXXXXXX,
     KC.LEFT,    KC.DOWN,    KC.UP,      KC.RIGHT,   XXXXXXX,    XXXXXXX,
     NEXTWIN,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    _______,
   _______, _______, _______,

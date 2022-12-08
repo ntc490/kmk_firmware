@@ -90,15 +90,15 @@ numbers.right(
 )
 
 power_user.left(
-    _______,    _______,    _______,    _______,    _______,    _______,
-    KC.TAB,     _______,    _______,    _______,    _______,    _______,
-    _______,    _______,    _______,    _______,    _______,    _______,
+    _______,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
+    KC.TAB,     XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
+    _______,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
                                                   _______, _______, _______,
 )
 power_user.right(
-    _______,    KC.PGDN,    KC.PGUP,    _______,    _______,    _______,
-    KC.LEFT,    KC.DOWN,    KC.UP,      KC.RIGHT,   _______,    _______,
-    NEXTWIN,    _______,    _______,    _______,    _______,    _______,
+    _______,    KC.PGDN,    KC.PGUP,    XXXXXXX,    XXXXXXX,    XXXXXXX,
+    KC.LEFT,    KC.DOWN,    KC.UP,      KC.RIGHT,   XXXXXXX,    XXXXXXX,
+    NEXTWIN,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    _______,
   _______, _______, _______,
 )
 

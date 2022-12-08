@@ -5,11 +5,12 @@ from kmk.keys import KC
 from kmk.modules.layers import Layers
 from kmk.modules.modtap import ModTap
 from kmk.modules.oneshot import OneShot
+from kmk.modules.mouse_keys import MouseKeys
 
 keyboard = KMKKeyboard()
 
 
-keyboard.modules.extend([ Layers(), ModTap(), OneShot() ])
+keyboard.modules.extend([ Layers(), ModTap(), OneShot(), MouseKeys() ])
 
 # --------------- Key aliases ---------------
 
@@ -91,8 +92,8 @@ numbers.right(
 
 power_user.left(
     _______,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
-    KC.TAB,     XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
-    _______,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
+    KC.TAB,     XXXXXXX,    KC.MS_LEFT, KC.MS_UP,   KC.MS_DOWN, KC.MS_RIGHT,
+    _______,    XXXXXXX,    XXXXXXX,    XXXXXXX,    KC.MB_LMB,  KC.MB_RMB,
                                                   _______, _______, _______,
 )
 power_user.right(

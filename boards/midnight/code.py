@@ -106,7 +106,7 @@ power_user.right(
     XXXXXXX,    KC.PGDN,    KC.PGUP,    XXXXXXX,    XXXXXXX,    XXXXXXX,
     KC.LEFT,    KC.DOWN,    KC.UP,      KC.RIGHT,   XXXXXXX,    XXXXXXX,
     NEXTWIN,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    _______,
-  _______, _______, _______,
+  _______, _______, KC.SPACE,
 )
 
 func_keys.left(
@@ -119,7 +119,7 @@ func_keys.right(
     KC.HOME,    KC.F7,     KC.F8,      KC.F9,      KC.F10,      KC.DEL,
     KC.END,     KC.F4,     KC.F5,      KC.F6,      KC.F11,      KC.PSCREEN,
     KC.INS,     KC.F1,     KC.F2,      KC.F3,      KC.F12,      C_A_DEL,
-  _______, _______, _______,
+  _______, _______, KC.SPACE,
 )
 
 # fmt: off

@@ -84,8 +84,8 @@ colemak.right(
 )
 
 numbers.left(
-    KC.ESC,     XXXXXXX,    XXXXXXX,    KC.LCBR,    KC.RCBR,    KC.TILD,
-    _______,    XXXXXXX,    XXXXXXX,    KC.LPRN,    KC.RPRN,    KC.GRV,
+    KC.ESC,     XXXXXXX,    XXXXXXX,    KC.LCBR,    KC.RCBR,    KC.GRV,
+    _______,    XXXXXXX,    XXXXXXX,    KC.LPRN,    KC.RPRN,    KC.TILD,
     _______,    XXXXXXX,    XXXXXXX,    KC.LBRC,    KC.RBRC,    XXXXXXX,
                                                   _______, _______, _______,
 )

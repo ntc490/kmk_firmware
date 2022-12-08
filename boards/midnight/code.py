@@ -1,6 +1,6 @@
 # Higher level Keyboard config like layers
 import board
-from kb import KMKKeyboard
+from kb import KMKKeyboard, Mapper
 from kmk.keys import KC
 from kmk.modules.layers import Layers
 from kmk.modules.modtap import ModTap
@@ -44,46 +44,85 @@ NUM_LSFT = KC.MT(KC.OS(KC.MO(NUM_LAYER)), KC.LSFT, prefer_hold=True, tap_time=TA
 
 # --------------- Key maps ---------------
 
+qwerty = Mapper()
+colemak = Mapper()
+numbers = Mapper()
+power_user = Mapper()
+func_keys = Mapper()
+
+qwerty.left(
+    PWR_ESC,    KC.Q,       KC.W,       KC.E,       KC.R,       KC.T,
+    NUM_TAB,    KC.A,       KC.S,       KC.D,       KC.F,       KC.G,
+    NUM_LSFT,   FUNC_Z,     KC.X,       KC.C,       KC.V,       KC.B,
+                                                  KC.BACKSPACE, KC.LCTL, KC.LALT
+)
+qwerty.right(
+    KC.Y,       KC.U,       KC.I,       KC.O,       KC.P,         KC.BSLASH,
+    KC.H,       KC.J,       KC.K,       KC.L,       KC.SEMICOLON, KC.QUOTE,
+    KC.N,       KC.M,       KC.COMMA,   KC.DOT,     KC.SLASH,     RSFTNUM_RSFT,
+  KC.LALT, LGUI_ENTER, HYPR_SPC,
+)
+
+colemak.left(
+    PWR_ESC,    KC.Q,       KC.W,       KC.F,       KC.P,       KC.B,
+    NUM_TAB,    KC.A,       KC.R,       KC.S,       KC.T,       KC.G,
+    NUM_LSFT,   FUNC_Z,     KC.X,       KC.C,       KC.D,       KC.V,
+                                                  KC.BACKSPACE, KC.LCTL, KC.LALT,
+)
+colemak.right(
+    KC.J,       KC.L,       KC.U,       KC.Y,       KC.SEMICOLON, KC.BSLASH,
+    KC.M,       KC.N,       KC.E,       KC.I,       KC.O,         KC.QUOTE,
+    KC.K,       KC.H,       KC.COMMA,   KC.DOT,     KC.SLASH,     RSFTNUM_RSFT,
+  KC.LALT, LGUI_ENTER, HYPR_SPC,
+)
+
+numbers.left(
+    KC.ESC,     XXXXXXX,    XXXXXXX,    KC.LCBR,    KC.RCBR,    KC.TILD,
+    _______,    XXXXXXX,    XXXXXXX,    KC.LPRN,    KC.RPRN,    KC.GRV,
+    _______,    XXXXXXX,    XXXXXXX,    KC.LBRC,    KC.RBRC,    XXXXXXX,
+                                                  _______, _______, _______,
+)
+numbers.right(
+    KC.EQUAL,   KC.N7,      KC.N8,      KC.N9,      KC.UNDS,    _______,
+    KC.MINUS,   KC.N4,      KC.N5,      KC.N6,      KC.PLUS,    _______,
+    KC.DOT,     KC.N1,      KC.N2,      KC.N3,      KC.SLSH,    _______,
+  _______, _______, KC.N0,
+)
+
+power_user.left(
+    _______,    _______,    _______,    _______,    _______,    _______,
+    KC.TAB,     _______,    _______,    _______,    _______,    _______,
+    _______,    _______,    _______,    _______,    _______,    _______,
+                                                  _______, _______, _______,
+)
+power_user.right(
+    _______,    KC.PGDN,    KC.PGUP,    _______,    _______,    _______,
+    KC.LEFT,    KC.DOWN,    KC.UP,      KC.RIGHT,   _______,    _______,
+    NEXTWIN,    _______,    _______,    _______,    _______,    _______,
+  _______, _______, _______,
+)
+
+func_keys.left(
+    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
+    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    QWERTY,     COLEMK,
+    XXXXXXX,    XXXXXXX,    XXXXXXX,    KC.CAPS,    XXXXXXX,    XXXXXXX,
+                                                  _______, _______, _______,
+)
+func_keys.right(
+    KC.HOME,    KC.F7,     KC.F8,      KC.F9,      KC.F10,      KC.DEL,
+    KC.END,     KC.F4,     KC.F5,      KC.F6,      KC.F11,      KC.PSCREEN,
+    KC.INS,     KC.F1,     KC.F2,      KC.F3,      KC.F12,      C_A_DEL,
+  _______, _______, _______,
+)
+
 # fmt: off
 # flake8: noqa
 keyboard.keymap = [
-    [  # QWERTY
-        PWR_ESC, KC.Q,    KC.W,    KC.E,    KC.R,    KC.T,             KC.Y, KC.U, KC.I,     KC.O,   KC.P,         KC.BSLASH,
-        NUM_TAB, KC.A,    KC.S,    KC.D,    KC.F,    KC.G,             KC.H, KC.J, KC.K,     KC.L,   KC.SEMICOLON, KC.QUOTE,
-        NUM_LSFT,FUNC_Z,  KC.X,    KC.C,    KC.V,    KC.B,             KC.N, KC.M, KC.COMMA, KC.DOT, KC.SLASH,     RSFTNUM_RSFT,
-                               KC.BACKSPACE, KC.LCTL, KC.LALT,      KC.LALT, LGUI_ENTER, HYPR_SPC,
-    ],
-    [  # Colemak
-        PWR_ESC, KC.Q,    KC.W,    KC.F,    KC.P,    KC.B,             KC.J, KC.L, KC.U,     KC.Y,   KC.SEMICOLON, KC.BSLASH,
-        NUM_TAB, KC.A,    KC.R,    KC.S,    KC.T,    KC.G,             KC.M, KC.N, KC.E,     KC.I,   KC.O,         KC.QUOTE,
-        NUM_LSFT,FUNC_Z,  KC.X,    KC.C,    KC.D,    KC.V,             KC.K, KC.H, KC.COMMA, KC.DOT, KC.SLASH,     RSFTNUM_RSFT,
-                               KC.BACKSPACE, KC.LCTL, KC.LALT,      KC.LALT, LGUI_ENTER, HYPR_SPC,
-    ],
-    [  # Numbers
-        KC.ESC,   XXXXXXX,  XXXXXXX, KC.LCBR, KC.RCBR, KC.TILD,           KC.EQUAL, KC.N7, KC.N8, KC.N9, KC.UNDS,  _______,
-        _______,  XXXXXXX,  XXXXXXX, KC.LPRN, KC.RPRN, KC.GRV,            KC.MINUS, KC.N4, KC.N5, KC.N6, KC.PLUS,  _______,
-        _______,  XXXXXXX,  XXXXXXX, KC.LBRC, KC.RBRC, XXXXXXX,           KC.DOT,   KC.N1, KC.N2, KC.N3, KC.SLSH,  _______,
-                                        _______, _______, _______,    _______, _______, KC.N0,
-    ],
-    # TODO: add mouse keys to left-hand side of power user map
-    [  # Power User
-        _______,  _______,  _______, _______, _______,  _______,             _______,  KC.PGDN, KC.PGUP,_______,  _______,  _______,
-        KC.TAB,   _______,  _______, _______, _______,  _______,             KC.LEFT, KC.DOWN, KC.UP,  KC.RIGHT,_______,  _______,
-        _______,  _______,  _______, _______, _______,  _______,             NEXTWIN, _______,  _______, _______,  _______,  _______,
-                                        _______, _______, _______,    _______, _______, _______,
-    ],
-    [  # Function keys
-        XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,            KC.HOME,  KC.F7,   KC.F8,  KC.F9,  KC.F10,  KC.DEL,
-        XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX, QWERTY, COLEMK,              KC.END,   KC.F4,   KC.F5,  KC.F6,  KC.F11,  KC.PSCREEN,
-        XXXXXXX,  XXXXXXX,  XXXXXXX, KC.CAPS,XXXXXXX, XXXXXXX,             KC.INS,   KC.F1,   KC.F2,  KC.F3,  KC.F12,  C_A_DEL,
-                                        _______, _______, _______,    _______, _______, _______,
-    ],
-    [  # Mouse Layer
-        _______,  _______,  _______, _______, _______,  _______,            _______,  _______,  _______, _______,  _______,  _______,
-        _______,  _______,  _______, _______, _______,  _______,            _______,  _______,  _______, _______,  _______,  _______,
-        _______,  _______,  _______, _______, _______,  _______,            _______,  _______,  _______, _______,  _______,  _______,
-                                        _______, _______, _______,    _______, _______, _______,
-    ]
+    qwerty.map(),
+    colemak.map(),
+    numbers.map(),
+    power_user.map(),
+    func_keys.map()
 ]
 
 if __name__ == "__main__":

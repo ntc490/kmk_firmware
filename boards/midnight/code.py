@@ -22,8 +22,8 @@ MOUSE_LAYER = 5
 TAP_TIME = 200
 
 # Simple Key definitions
-______ = KC.TRNS
-XXXXXX = KC.NO
+_______ = KC.TRNS
+XXXXXXX = KC.NO
 NEXTWIN = KC.LGUI(KC.GRAVE)
 C_A_DEL = KC.LCTL(KC.LALT(KC.DEL))
 QWERTY = KC.DF(QWERTY_LAYER)
@@ -60,29 +60,29 @@ keyboard.keymap = [
                                KC.BACKSPACE, KC.LCTL, KC.LALT,      KC.LALT, LGUI_ENTER, HYPR_SPC,
     ],
     [  # Numbers
-        KC.ESC,  XXXXXX,  XXXXXX, KC.LCBR, KC.RCBR, KC.TILD,           KC.EQUAL, KC.N7, KC.N8, KC.N9, KC.UNDS,  ______,
-        ______,  XXXXXX,  XXXXXX, KC.LPRN, KC.RPRN, KC.GRV,            KC.MINUS, KC.N4, KC.N5, KC.N6, KC.PLUS,  ______,
-        ______,  XXXXXX,  XXXXXX, KC.LBRC, KC.RBRC, XXXXXX,            KC.DOT,   KC.N1, KC.N2, KC.N3, KC.SLSH,  ______,
-                                        ______, ______, ______,    ______, ______, KC.N0,
+        KC.ESC,   XXXXXXX,  XXXXXXX, KC.LCBR, KC.RCBR, KC.TILD,           KC.EQUAL, KC.N7, KC.N8, KC.N9, KC.UNDS,  _______,
+        _______,  XXXXXXX,  XXXXXXX, KC.LPRN, KC.RPRN, KC.GRV,            KC.MINUS, KC.N4, KC.N5, KC.N6, KC.PLUS,  _______,
+        _______,  XXXXXXX,  XXXXXXX, KC.LBRC, KC.RBRC, XXXXXXX,           KC.DOT,   KC.N1, KC.N2, KC.N3, KC.SLSH,  _______,
+                                        _______, _______, _______,    _______, _______, KC.N0,
     ],
     # TODO: add mouse keys to left-hand side of power user map
     [  # Power User
-        ______,  ______,  ______, ______, ______,  ______,             ______,  KC.PGDN, KC.PGUP,______,  ______,  ______,
-        KC.TAB,  ______,  ______, ______, ______,  ______,             KC.LEFT, KC.DOWN, KC.UP,  KC.RIGHT,______,  ______,
-        ______,  ______,  ______, ______, ______,  ______,             NEXTWIN, ______,  ______, ______,  ______,  ______,
-                                        ______, ______, ______,    ______, ______, ______,
+        _______,  _______,  _______, _______, _______,  _______,             _______,  KC.PGDN, KC.PGUP,_______,  _______,  _______,
+        KC.TAB,   _______,  _______, _______, _______,  _______,             KC.LEFT, KC.DOWN, KC.UP,  KC.RIGHT,_______,  _______,
+        _______,  _______,  _______, _______, _______,  _______,             NEXTWIN, _______,  _______, _______,  _______,  _______,
+                                        _______, _______, _______,    _______, _______, _______,
     ],
     [  # Function keys
-        XXXXXX,  XXXXXX,  XXXXXX, XXXXXX, XXXXXX, XXXXXX,              KC.HOME,  KC.F7,   KC.F8,  KC.F9,  KC.F10,  KC.DEL,
-        XXXXXX,  XXXXXX,  XXXXXX, XXXXXX, QWERTY, COLEMK,              KC.END,   KC.F4,   KC.F5,  KC.F6,  KC.F11,  KC.PSCREEN,
-        XXXXXX,  XXXXXX,  XXXXXX, KC.CAPS,XXXXXX, XXXXXX,              KC.INS,   KC.F1,   KC.F2,  KC.F3,  KC.F12,  C_A_DEL,
-                                        ______, ______, ______,    ______, ______, ______,
+        XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,            KC.HOME,  KC.F7,   KC.F8,  KC.F9,  KC.F10,  KC.DEL,
+        XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX, QWERTY, COLEMK,              KC.END,   KC.F4,   KC.F5,  KC.F6,  KC.F11,  KC.PSCREEN,
+        XXXXXXX,  XXXXXXX,  XXXXXXX, KC.CAPS,XXXXXXX, XXXXXXX,             KC.INS,   KC.F1,   KC.F2,  KC.F3,  KC.F12,  C_A_DEL,
+                                        _______, _______, _______,    _______, _______, _______,
     ],
     [  # Mouse Layer
-        ______,  ______,  ______, ______, ______,  ______,            ______,  ______,  ______, ______,  ______,  ______,
-        ______,  ______,  ______, ______, ______,  ______,            ______,  ______,  ______, ______,  ______,  ______,
-        ______,  ______,  ______, ______, ______,  ______,            ______,  ______,  ______, ______,  ______,  ______,
-                                        ______, ______, ______,    ______, ______, ______,
+        _______,  _______,  _______, _______, _______,  _______,            _______,  _______,  _______, _______,  _______,  _______,
+        _______,  _______,  _______, _______, _______,  _______,            _______,  _______,  _______, _______,  _______,  _______,
+        _______,  _______,  _______, _______, _______,  _______,            _______,  _______,  _______, _______,  _______,  _______,
+                                        _______, _______, _______,    _______, _______, _______,
     ]
 ]
 

@@ -60,7 +60,7 @@ fkeys = Mapper36()
 # |SHF/Z| X   | C   | V   | B   |                      | N   | M   | , < | . > |SHF/?|
 # `-----'-----'-----'-----'-----'                      `-----'-----'-----'-----'-----'
 #               .-------.-------.-------.      .-------.-------.-------.   
-#               |GUI/ESC|CTR/TAB|ALT/OSN|      |HYP/ENT|NM/SPC |FKY/BSP|
+#               |GUI/ESC|CTR/TAB|ALT/OSN|      |FKY/BSP|HYP/ENT|NM/SPC |
 #               '-------'-------'-------'      '-------'-------'-------' 
 qwerty.left(
     KC.Q,       KC.W,       KC.E,       KC.R,       GUI_T,
@@ -72,7 +72,7 @@ qwerty.right(
     KC.Y,       KC.U,       KC.I,       KC.O,       KC.P,
     KC.H,       KC.J,       KC.K,       KC.L,       KC.SEMICOLON,
     KC.N,       GUI_M,      KC.COMMA,   KC.DOT,     SHIFT_SLASH,
-    HYPR_ENTER, NUM_SPACE,  FKEY_BKSP
+    FKEY_BKSP,  HYPR_ENTER, NUM_SPACE
 )
 
 # ,-----.-----.-----.-----.-----.                      ,-----.-----.-----.-----.-----.
@@ -83,7 +83,7 @@ qwerty.right(
 # |SHF/Z| X   | C   | D   | V   |                      | K   | H   | , < | . > |SHF/?|
 # `-----'-----'-----'-----'-----'                      `-----'-----'-----'-----'-----'
 #               .-------.-------.-------.      .-------.-------.-------.   
-#               |GUI/ESC|CTR/TAB|ALT/OSN|      |HYP/ENT|NM/SPC |FKY/BSP|
+#               |GUI/ESC|CTR/TAB|ALT/OSN|      |FKY/BSP|HYP/ENT|NM/SPC |
 #               '-------'-------'-------'      '-------'-------'-------' 
 colemak.left(
     KC.Q,       KC.W,       KC.F,       KC.P,       KC.B,
@@ -95,7 +95,7 @@ colemak.right(
     KC.J,       KC.L,       KC.U,       KC.Y,       KC.SEMICOLON,
     KC.M,       KC.N,       KC.E,       KC.I,       KC.O,
     KC.K,       KC.H,       KC.COMMA,   KC.DOT,     SHIFT_SLASH,
-    HYPR_ENTER, NUM_SPACE,  FKEY_BKSP
+    FKEY_BKSP,  HYPR_ENTER, NUM_SPACE
 )
 
 # ,-----.-----.-----.-----.-----.                      ,-----.-----.-----.-----.-----.
@@ -106,7 +106,7 @@ colemak.right(
 # |SHFT | = + | - _ | [ { | ] } |                      |NXTWN| XXX | XXX |     |SHF\||
 # `-----'-----'-----'-----'-----'                      `-----'-----'-----'-----'-----'
 #               .-------.-------.-------.      .-------.-------.-------.   
-#               |       |       |       |      |       |(hold) | BKSP  |
+#               |       |       |       |      | BKSP  |       |(hold) |
 #               '-------'-------'-------'      '-------'-------'-------' 
 numbers.left(
     KC.N1,      KC.N2,      KC.N3,      KC.N4,      KC.N5,
@@ -118,7 +118,7 @@ numbers.right(
     KC.N6,      KC.N7,      KC.N8,      KC.N9,      KC.N0,
     KC.LEFT,    KC.DOWN,    KC.UP,      KC.RIGHT,   KC.QUOTE,
     NEXTWIN,    XXXXXXX,    XXXXXXX,    _______,    SHIFT_BACKSLASH,
-    _______,    _______,    KC.BKSP
+    KC.BKSP,    _______,    _______
 )
 
 # ,-----.-----.-----.-----.-----.                      ,-----.-----.-----.-----.-----.
@@ -129,7 +129,7 @@ numbers.right(
 # | SHFT| XXX |CAPS |QWERT|COLEM|                      |BTN1 | BTN2| XXX | XXX |SHFT |
 # `-----'-----'-----'-----'-----'                      `-----'-----'-----'-----'-----'
 #               .-------.-------.-------.      .-------.-------.-------.   
-#               |       |       |       |      |       | SPACE |(hold) |
+#               |       |       |       |      |(hold) |       | SPACE |
 #               '-----------------------'      '-------'-------'-------' 
 fkeys.left(
     KC.F1,      KC.F2,      KC.F3,      KC.F4,      KC.F5,
@@ -141,7 +141,7 @@ fkeys.right(
     KC.F6,      KC.F7,     KC.F8,      KC.F9,      KC.F10,
     KC.MS_LEFT, KC.MS_DOWN,KC.MS_UP,   KC.MS_RIGHT,XXXXXXX,
     KC.MB_LMB,  KC.MB_RMB, XXXXXXX,    XXXXXXX,    KC.RSFT,
-    _______,    KC.SPACE,  _______
+    _______,    _______,   KC.SPACE
 )
 
 # fmt: off

@@ -4,10 +4,12 @@ import digitalio
 import storage
 
 button = digitalio.DigitalInOut(board.GP4)
+button2 = digitalio.DigitalInOut(board.GP7)
 button.pull = digitalio.Pull.UP
+button2.pull = digitalio.Pull.UP
 
 # Disable USB storage unless the shift key is pressed
-if button.value:
+if button.value and button2.value:
     storage.disable_usb_drive()
 
 

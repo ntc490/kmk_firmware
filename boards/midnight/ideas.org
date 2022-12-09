@@ -5,6 +5,7 @@
   - Add "jiggler" module
   - Add hand detection module to switch layers - mouse-control-layer
   - Morse code beeper/vibrator support
+  - snake/kebab/camel case mode (space bar mod)
 
 - HOW IT WORKS
   - coord mapping is determined by the KMK Keyboard class, unless

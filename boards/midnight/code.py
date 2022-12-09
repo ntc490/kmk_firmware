@@ -34,7 +34,7 @@ GUI_M = KC.MT(KC.M, KC.LGUI(KC.M), prefer_hold=False, tap_time=300)
 # Fancy mod-tap/layer-tap multi-function keys
 SHIFT_Z = KC.MT(KC.Z, KC.LSFT, prefer_hold=False)
 SHIFT_SLASH = KC.MT(KC.SLASH, KC.RSFT, prefer_hold=False)
-LGUI_ESC = KC.MT(KC.ESC, KC.LGUI, prefer_hold=False)
+LGUI_ESC = KC.MT(KC.ESC, KC.LGUI, prefer_hold=True)
 CTRL_TAB = KC.MT(KC.TAB, KC.LCTRL, prefer_hold=False)
 ALT_OSNUM = KC.MT(KC.OS(KC.MO(NUM_LAYER)), KC.LALT, prefer_hold=True)
 HYPR_ENTER = KC.MT(KC.ENTER, KC.HYPR, prefer_hold=True)

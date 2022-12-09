@@ -2,6 +2,7 @@
 # scanning, split operation etc.
 
 import board
+from kmk.keys import KC
 from kmk.kmk_keyboard import KMKKeyboard as _KMKKeyboard
 from kmk.scanners.keypad import KeysScanner
 from kmk.modules.split import Split, SplitSide
@@ -53,7 +54,7 @@ class KMKKeyboard(_KMKKeyboard):
                     18, 19, 20,    41, 40, 39,
     ]
 
-class Mapper():
+class Mapper42():
     # Create 42 kep Midnight keyboard map by separately defining the
     # left and right sides. Just makes definition easier to read.
     def __init__(self):
@@ -104,6 +105,61 @@ class Mapper():
         self._map[39] = keys[18]
         self._map[40] = keys[19]
         self._map[41] = keys[20]
+
+    def map(self):
+        return self._map
+
+class Mapper36():
+    # Create 36 kep Midnight keyboard map by separately defining the
+    # left and right sides. Just makes definition easier to read.
+    def __init__(self):
+        self._map = [0] * 42
+
+    def left(self, *keys):
+        self._map[0] = KC.NO
+        self._map[1] = keys[0]
+        self._map[2] = keys[1]
+        self._map[3] = keys[2]
+        self._map[4] = keys[3]
+        self._map[5] = keys[4]
+        self._map[12] = KC.NO
+        self._map[13] = keys[5]
+        self._map[14] = keys[6]
+        self._map[15] = keys[7]
+        self._map[16] = keys[8]
+        self._map[17] = keys[9]
+        self._map[24] = KC.NO
+        self._map[25] = keys[10]
+        self._map[26] = keys[11]
+        self._map[27] = keys[12]
+        self._map[28] = keys[13]
+        self._map[29] = keys[14]
+        self._map[36] = keys[15]
+        self._map[37] = keys[16]
+        self._map[38] = keys[17]
+
+    def right(self, *keys):
+        self._map[6]  = keys[0]
+        self._map[7]  = keys[1]
+        self._map[8]  = keys[2]
+        self._map[9]  = keys[3]
+        self._map[10] = keys[4]
+        self._map[11] = KC.NO
+        self._map[18] = keys[5]
+        self._map[19] = keys[6]
+        self._map[20] = keys[7]
+        self._map[21] = keys[8]
+        self._map[22] = keys[9]
+        self._map[23] = KC.NO
+        self._map[30] = keys[10]
+        self._map[31] = keys[11]
+        self._map[32] = keys[12]
+        self._map[33] = keys[13]
+        self._map[34] = keys[14]
+        self._map[35] = KC.NO
+        self._map[39] = keys[15]
+        self._map[40] = keys[16]
+        self._map[41] = keys[17]
 
     def map(self):
         return self._map

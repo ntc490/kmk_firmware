@@ -1,6 +1,6 @@
 # Higher level Keyboard config like layers
 import board
-from kb import KMKKeyboard, Mapper
+from kb import KMKKeyboard, Mapper36
 from kmk.keys import KC
 from kmk.modules.layers import Layers
 from kmk.modules.modtap import ModTap
@@ -17,17 +17,14 @@ keyboard.modules.extend([ Layers(), ModTap(), OneShot(), MouseKeys() ])
 QWERTY_LAYER = 0
 COLEMAK_LAYER = 1
 NUM_LAYER = 2
-PWR_LAYER = 3
-FUNC_LAYER = 4
-TAP_TIME = 200
+FKEY_LAYER = 3
 
 # Simple Key definitions
 _______ = KC.TRNS
 XXXXXXX = KC.NO
 NEXTWIN = KC.LGUI(KC.GRAVE)
-C_A_DEL = KC.LCTL(KC.LALT(KC.DEL))
 QWERTY = KC.DF(QWERTY_LAYER)
-COLEMK = KC.DF(COLEMAK_LAYER)
+COLEMAK = KC.DF(COLEMAK_LAYER)
 GUI_T = KC.MT(KC.T, KC.LGUI(KC.T), prefer_hold=False, tap_time=300)
 GUI_X = KC.MT(KC.X, KC.LGUI(KC.X), prefer_hold=False, tap_time=300)
 GUI_C = KC.MT(KC.C, KC.LGUI(KC.C), prefer_hold=False, tap_time=300)
@@ -35,89 +32,115 @@ GUI_V = KC.MT(KC.V, KC.LGUI(KC.V), prefer_hold=False, tap_time=300)
 GUI_M = KC.MT(KC.M, KC.LGUI(KC.M), prefer_hold=False, tap_time=300)
 
 # Fancy mod-tap/layer-tap multi-function keys
-LGUI_ENTER = KC.MT(KC.ENTER, KC.LGUI, prefer_hold=True, tap_time=TAP_TIME)
-NUM_TAB = KC.LT(NUM_LAYER, KC.TAB, prefer_hold=True, tap_time=TAP_TIME)
-PWR_ESC = KC.LT(PWR_LAYER, KC.ESC, prefer_hold=True, tap_time=TAP_TIME)
-FUNC_Z = KC.LT(FUNC_LAYER, KC.Z, prefer_hold=False, tap_time=TAP_TIME)
-HYPR_SPC = KC.MT(KC.SPACE, KC.HYPR, prefer_hold=False, tap_time=TAP_TIME)
-
-# Left and right shift work normally when held. Left shift tap does a
-# one-shot number layer, right shift tap does a one-shot number layer
-# with shift (symbols)
-RSFTNUM_RSFT = KC.MT(KC.OS(KC.LM(NUM_LAYER, KC.RSFT)), KC.RSFT, prefer_hold=True, tap_time=TAP_TIME)
-NUM_LSFT = KC.MT(KC.OS(KC.MO(NUM_LAYER)), KC.LSFT, prefer_hold=True, tap_time=TAP_TIME)
+SHIFT_Z = KC.MT(KC.Z, KC.LSFT, prefer_hold=False)
+SHIFT_SLASH = KC.MT(KC.SLASH, KC.RSFT, prefer_hold=False)
+LGUI_ESC = KC.MT(KC.ESC, KC.LGUI, prefer_hold=False)
+CTRL_TAB = KC.MT(KC.TAB, KC.LCTRL, prefer_hold=False)
+ALT_OSNUM = KC.MT(KC.OS(KC.MO(NUM_LAYER)), KC.LALT, prefer_hold=True)
+HYPR_ENTER = KC.MT(KC.ENTER, KC.HYPR, prefer_hold=True)
+NUM_SPACE = KC.LT(NUM_LAYER, KC.SPACE, prefer_hold=False)
+FKEY_BKSP = KC.LT(FKEY_LAYER, KC.BKSP, prefer_hold=False)
 
 # --------------- Key maps ---------------
 
-qwerty = Mapper()
-colemak = Mapper()
-numbers = Mapper()
-power_user = Mapper()
-func_keys = Mapper()
+qwerty = Mapper36()
+colemak = Mapper36()
+numbers = Mapper36()
+fkeys = Mapper36()
 
+# Keymappings adapted from:
+# https://peterxjang.com/blog/designing-a-36-key-custom-keyboard-layout.html
+#
+# ,-----.-----.-----.-----.-----.                      ,-----.-----.-----.-----.-----.
+# | Q   | W   | E   | R   | T   |                      | Y   | U   | I   | O   | P   |
+# |-----+-----+-----+-----+-----|                      |-----+-----+-----+-----+-----|
+# | A   | S   | D   | F   | G   |                      | H   | J   | K   | L   | ; : | 
+# |-----+-----+-----+-----+-----+                      |-----+-----+-----+-----+-----|
+# |SHF/Z| X   | C   | V   | B   |                      | N   | M   | , < | . > |SHF/?|
+# `-----'-----'-----'-----'-----'                      `-----'-----'-----'-----'-----'
+#               .-------.-------.-------.      .-------.-------.-------.   
+#               |GUI/ESC|CTR/TAB|ALT/OSN|      |HYP/ENT|NM/SPC |FKY/BSP|
+#               '-------'-------'-------'      '-------'-------'-------' 
 qwerty.left(
-    PWR_ESC,    KC.Q,       KC.W,       KC.E,       KC.R,       GUI_T,
-    NUM_TAB,    KC.A,       KC.S,       KC.D,       KC.F,       KC.G,
-    NUM_LSFT,   FUNC_Z,     GUI_X,      GUI_C,      GUI_V,      KC.B,
-                                                  KC.BACKSPACE, KC.LCTL, KC.LALT
+    KC.Q,       KC.W,       KC.E,       KC.R,       GUI_T,
+    KC.A,       KC.S,       KC.D,       KC.F,       KC.G,
+    SHIFT_Z,    GUI_X,      GUI_C,      GUI_V,      KC.B,
+                            LGUI_ESC,   CTRL_TAB,   ALT_OSNUM
 )
 qwerty.right(
-    KC.Y,       KC.U,       KC.I,       KC.O,       KC.P,         KC.BSLASH,
-    KC.H,       KC.J,       KC.K,       KC.L,       KC.SEMICOLON, KC.QUOTE,
-    KC.N,       GUI_M,      KC.COMMA,   KC.DOT,     KC.SLASH,     RSFTNUM_RSFT,
-  KC.LSFT, LGUI_ENTER, HYPR_SPC,
+    KC.Y,       KC.U,       KC.I,       KC.O,       KC.P,
+    KC.H,       KC.J,       KC.K,       KC.L,       KC.SEMICOLON,
+    KC.N,       GUI_M,      KC.COMMA,   KC.DOT,     SHIFT_SLASH,
+    HYPR_ENTER, NUM_SPACE,  FKEY_BKSP
 )
 
+# ,-----.-----.-----.-----.-----.                      ,-----.-----.-----.-----.-----.
+# | Q   | W   | F   | P   | B   |                      | J   | L   | U   | Y   | ; : |
+# |-----+-----+-----+-----+-----|                      |-----+-----+-----+-----+-----|
+# | A   | R   | S   | T   | G   |                      | M   | N   | E   | I   | O   | 
+# |-----+-----+-----+-----+-----+                      |-----+-----+-----+-----+-----|
+# |SHF/Z| X   | C   | D   | V   |                      | K   | H   | , < | . > |SHF/?|
+# `-----'-----'-----'-----'-----'                      `-----'-----'-----'-----'-----'
+#               .-------.-------.-------.      .-------.-------.-------.   
+#               |GUI/ESC|CTR/TAB|ALT/OSN|      |HYP/ENT|NM/SPC |FKY/BSP|
+#               '-------'-------'-------'      '-------'-------'-------' 
 colemak.left(
-    PWR_ESC,    KC.Q,       KC.W,       KC.F,       KC.P,       KC.B,
-    NUM_TAB,    KC.A,       KC.R,       KC.S,       KC.T,       KC.G,
-    NUM_LSFT,   FUNC_Z,     KC.X,       KC.C,       KC.D,       KC.V,
-                                                  KC.BACKSPACE, KC.LCTL, KC.LALT,
+    KC.Q,       KC.W,       KC.F,       KC.P,       KC.B,
+    KC.A,       KC.R,       KC.S,       KC.T,       KC.G,
+    SHIFT_Z,    KC.X,       KC.C,       KC.D,       KC.V,
+                            LGUI_ESC,   CTRL_TAB,   ALT_OSNUM
 )
 colemak.right(
-    KC.J,       KC.L,       KC.U,       KC.Y,       KC.SEMICOLON, KC.BSLASH,
-    KC.M,       KC.N,       KC.E,       KC.I,       KC.O,         KC.QUOTE,
-    KC.K,       KC.H,       KC.COMMA,   KC.DOT,     KC.SLASH,     RSFTNUM_RSFT,
-  KC.LSFT, LGUI_ENTER, HYPR_SPC,
+    KC.J,       KC.L,       KC.U,       KC.Y,       KC.SEMICOLON,
+    KC.M,       KC.N,       KC.E,       KC.I,       KC.O,
+    KC.K,       KC.H,       KC.COMMA,   KC.DOT,     SHIFT_SLASH,
+    HYPR_ENTER, NUM_SPACE,  FKEY_BKSP
 )
 
+# ,-----.-----.-----.-----.-----.                      ,-----.-----.-----.-----.-----.
+# | 1!  | 2@  | 3#  | 4$  | 5%  |                      | 6^  | 7&  | 8*  | 9(  | 0)  |
+# |-----+-----+-----+-----+-----|                      |-----+-----+-----+-----+-----|
+# | `~  |HOME |PGUP |PGDN | END |                      |LEFT |DOWN | UP  |RGHT | ' " |
+# |-----+-----+-----+-----+-----+                      |-----+-----+-----+-----+-----|
+# |SHFT | = + | - _ | [ { | ] } |                      |NXTWN| XXX | XXX |     |SHF\||
+# `-----'-----'-----'-----'-----'                      `-----'-----'-----'-----'-----'
+#               .-------.-------.-------.      .-------.-------.-------.   
+#               |       |       |       |      |       |(hold) | BKSP  |
+#               '-------'-------'-------'      '-------'-------'-------' 
 numbers.left(
-    KC.ESC,     XXXXXXX,    XXXXXXX,    KC.LCBR,    KC.RCBR,    KC.GRV,
-    _______,    XXXXXXX,    XXXXXXX,    KC.LPRN,    KC.RPRN,    KC.TILD,
-    _______,    XXXXXXX,    XXXXXXX,    KC.LBRC,    KC.RBRC,    XXXXXXX,
-                                                  _______, _______, _______,
+    KC.N1,      KC.N2,      KC.N3,      KC.N4,      KC.N5,
+    KC.TILD,    KC.HOME,    KC.PGUP,    KC.PGDN,    KC.END,
+    KC.LSFT,    KC.EQUAL,   KC.MINUS,   KC.LBRC,    KC.RBRC,
+                            _______,    _______,    _______
 )
 numbers.right(
-    KC.EQUAL,   KC.N7,      KC.N8,      KC.N9,      KC.UNDS,    _______,
-    KC.MINUS,   KC.N4,      KC.N5,      KC.N6,      KC.PLUS,    _______,
-    KC.DOT,     KC.N1,      KC.N2,      KC.N3,      KC.SLSH,    _______,
-  _______, _______, KC.N0,
+    KC.N6,      KC.N7,      KC.N8,      KC.N9,      KC.N0,
+    KC.LEFT,    KC.DOWN,    KC.UP,      KC.RIGHT,   KC.QUOTE,
+    NEXTWIN,    XXXXXXX,    XXXXXXX,    _______,    SHIFT_SLASH,
+    _______,    _______,    KC.BKSP
 )
 
-power_user.left(
-    _______,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
-    KC.TAB,     XXXXXXX,    KC.MS_LEFT, KC.MS_UP,   KC.MS_DOWN, KC.MS_RIGHT,
-    _______,    XXXXXXX,    XXXXXXX,    XXXXXXX,    KC.MB_LMB,  KC.MB_RMB,
-                                                  _______, _______, _______,
+# ,-----.-----.-----.-----.-----.                      ,-----.-----.-----.-----.-----.
+# | F1  | F2  | F3  | F4  | F5  |                      | F6  | F7  | F8  | F9  | F10 |
+# |-----+-----+-----+-----+-----|                      |-----+-----+-----+-----+-----|
+# | F11 | F12 | XXX | XXX | XXX |                      |MLEFT|MDOWN| MUP |MRGHT| XXX |
+# |-----+-----+-----+-----+-----+                      |-----+-----+-----+-----+-----|
+# | SHFT| XXX |CAPS |QWERT|COLEM|                      |BTN1 | BTN2| XXX | XXX |SHFT |
+# `-----'-----'-----'-----'-----'                      `-----'-----'-----'-----'-----'
+#               .-------.-------.-------.      .-------.-------.-------.   
+#               |       |       |       |      |       | SPACE |(hold) |
+#               '-----------------------'      '-------'-------'-------' 
+fkeys.left(
+    KC.F1,      KC.F2,      KC.F3,      KC.F4,      KC.F5,
+    KC.F11,     KC.F12,     XXXXXXX,    XXXXXXX,    XXXXXXX,
+    KC.LSFT,    XXXXXXX,    KC.CAPS,    QWERTY,     COLEMAK,
+                            _______,    _______,    _______
 )
-power_user.right(
-    XXXXXXX,    KC.PGDN,    KC.PGUP,    XXXXXXX,    XXXXXXX,    XXXXXXX,
-    KC.LEFT,    KC.DOWN,    KC.UP,      KC.RIGHT,   XXXXXXX,    XXXXXXX,
-    NEXTWIN,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    _______,
-  _______, _______, KC.SPACE,
-)
-
-func_keys.left(
-    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
-    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    QWERTY,     COLEMK,
-    XXXXXXX,    XXXXXXX,    XXXXXXX,    KC.CAPS,    XXXXXXX,    XXXXXXX,
-                                                  _______, _______, _______,
-)
-func_keys.right(
-    KC.HOME,    KC.F7,     KC.F8,      KC.F9,      KC.F10,      KC.DEL,
-    KC.END,     KC.F4,     KC.F5,      KC.F6,      KC.F11,      KC.PSCREEN,
-    KC.INS,     KC.F1,     KC.F2,      KC.F3,      KC.F12,      C_A_DEL,
-  _______, _______, KC.SPACE,
+fkeys.right(
+    KC.F6,      KC.F7,     KC.F8,      KC.F9,      KC.F10,
+    KC.MS_LEFT, KC.MS_DOWN,KC.MS_UP,   KC.MS_RIGHT,XXXXXXX,
+    KC.MB_LMB,  KC.MB_RMB, XXXXXXX,    XXXXXXX,    KC.RSFT,
+    _______,    KC.SPACE,  _______
 )
 
 # fmt: off
@@ -126,10 +149,8 @@ keyboard.keymap = [
     qwerty.map(),
     colemak.map(),
     numbers.map(),
-    power_user.map(),
-    func_keys.map()
+    fkeys.map()
 ]
 
 if __name__ == "__main__":
     keyboard.go()
-

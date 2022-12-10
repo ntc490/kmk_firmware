@@ -78,6 +78,8 @@ XXXXXXX = KC.NO
 NEXTWIN = KC.LGUI(KC.GRAVE)
 QWERTY = KC.DF(QWERTY_LAYER)
 COLEMAK = KC.DF(COLEMAK_LAYER)
+RET = KC.LALT(KC.ASTR)
+LKUP = KC.LALT(KC.DOT)
 GUI_T = KC.MT(KC.T, KC.LGUI(KC.T), prefer_hold=False, tap_time=300)
 GUI_X = KC.MT(KC.X, KC.LGUI(KC.X), prefer_hold=False, tap_time=300)
 GUI_C = KC.MT(KC.C, KC.LGUI(KC.C), prefer_hold=False, tap_time=300)
@@ -137,7 +139,7 @@ numbers.left(
 numbers.right(
     KC.N6,      KC.N7,      KC.N8,      KC.N9,      KC.N0,
     KC.LEFT,    KC.DOWN,    KC.UP,      KC.RIGHT,   KC.QUOTE,
-    NEXTWIN,    XXXXXXX,    XXXXXXX,    _______,    SHIFT_BACKSLASH,
+    NEXTWIN,    RET,        LKUP,       _______,    SHIFT_BACKSLASH,
     KC.BKSP,    _______,    _______
 )
 

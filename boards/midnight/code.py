@@ -12,7 +12,7 @@
 # |SHF/Z| X   | C   | V   | B   |                      | N   | M   | , < | . > |SHF/?|
 # `-----'-----'-----'-----'-----'                      `-----'-----'-----'-----'-----'
 #               .-------.-------.-------.      .-------.-------.-------.
-#               |GUI/ESC|CTR/TAB|ALT/OSN|      |FKY/BSP|HYP/ENT|NM/SPC |
+#               |GUI/ESC|CTR/TAB|ALT/OSN|      |FKY/BSP|NUM/ENT|HYP/SPC|
 #               '-------'-------'-------'      '-------'-------'-------'
 #
 # Colemak - layer 1
@@ -24,7 +24,7 @@
 # |SHF/Z| X   | C   | D   | V   |                      | K   | H   | , < | . > |SHF/?|
 # `-----'-----'-----'-----'-----'                      `-----'-----'-----'-----'-----'
 #               .-------.-------.-------.      .-------.-------.-------.
-#               |GUI/ESC|CTR/TAB|ALT/OSN|      |FKY/BSP|HYP/ENT|NM/SPC |
+#               |GUI/ESC|CTR/TAB|ALT/OSN|      |FKY/BSP|NUM/ENT|HYP/SPC|
 #               '-------'-------'-------'      '-------'-------'-------'
 #
 # Numbers - layer 2
@@ -33,10 +33,10 @@
 # |-----+-----+-----+-----+-----|                      |-----+-----+-----+-----+-----|
 # | `~  |HOME |PGUP |PGDN | END |                      |LEFT |DOWN | UP  |RGHT | ' " |
 # |-----+-----+-----+-----+-----+                      |-----+-----+-----+-----+-----|
-# |SHFT | = + | - _ | [ { | ] } |                      |NXTWN| XXX | XXX |     |SHF\||
+# |SHFT | = + | - _ | [ { | ] } |                      |NXTWN| RET |LKUP |     |SHF\||
 # `-----'-----'-----'-----'-----'                      `-----'-----'-----'-----'-----'
 #               .-------.-------.-------.      .-------.-------.-------.
-#               |       |       |       |      | BKSP  |       |(hold) |
+#               |       |       |       |      | BKSP  |(hold) |       |
 #               '-------'-------'-------'      '-------'-------'-------'
 #
 # Function keys - layer 3
@@ -91,8 +91,8 @@ SHIFT_BACKSLASH = KC.MT(KC.BACKSLASH, KC.RSFT, prefer_hold=True)
 LGUI_ESC = KC.MT(KC.ESC, KC.LGUI, prefer_hold=True)
 CTRL_TAB = KC.MT(KC.TAB, KC.LCTRL, prefer_hold=True)
 ALT_OSNUM = KC.MT(KC.OS(KC.MO(NUM_LAYER)), KC.LALT, prefer_hold=True)
-HYPR_ENTER = KC.MT(KC.ENTER, KC.HYPR, prefer_hold=False)
-NUM_SPACE = KC.LT(NUM_LAYER, KC.SPACE, prefer_hold=False)
+NUM_ENTER = KC.LT(NUM_LAYER, KC.ENTER, prefer_hold=True)
+HYPR_SPACE = KC.MT(KC.SPACE, KC.HYPR, prefer_hold=False)
 FKEY_BKSP = KC.LT(FKEY_LAYER, KC.BKSP, prefer_hold=False)
 
 # --------------- Key maps ---------------
@@ -112,7 +112,7 @@ qwerty.right(
     KC.Y,       KC.U,       KC.I,       KC.O,       KC.P,
     KC.H,       KC.J,       KC.K,       KC.L,       KC.SEMICOLON,
     KC.N,       GUI_M,      KC.COMMA,   KC.DOT,     SHIFT_SLASH,
-    FKEY_BKSP,  HYPR_ENTER, NUM_SPACE
+    FKEY_BKSP,  NUM_ENTER,  HYPR_SPACE
 )
 
 colemak.left(
@@ -125,7 +125,7 @@ colemak.right(
     KC.J,       KC.L,       KC.U,       KC.Y,       KC.SEMICOLON,
     KC.M,       KC.N,       KC.E,       KC.I,       KC.O,
     KC.K,       KC.H,       KC.COMMA,   KC.DOT,     SHIFT_SLASH,
-    FKEY_BKSP,  HYPR_ENTER, NUM_SPACE
+    FKEY_BKSP,  NUM_ENTER,  HYPR_SPACE
 )
 
 numbers.left(

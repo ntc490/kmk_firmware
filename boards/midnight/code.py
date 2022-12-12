@@ -66,18 +66,18 @@ keyboard.modules.extend([ Layers(), ModTap(), OneShot(), MouseKeys() ])
 
 # --------------- Layer Indexes ---------------
 
-QWERTY_LAYER = 0
-COLEMAK_LAYER = 1
-NUM_LAYER = 2
-FKEY_LAYER = 3
+qwerty = Mapper36()
+colemak = Mapper36()
+numbers = Mapper36()
+fkeys = Mapper36()
 
 # --------------- Key Definitions and Aliases ---------------
 
 _______ = KC.TRNS
 XXXXXXX = KC.NO
 NEXTWIN = KC.LGUI(KC.GRAVE)
-QWERTY = KC.DF(QWERTY_LAYER)
-COLEMAK = KC.DF(COLEMAK_LAYER)
+QWERTY = KC.DF(qwerty.layer_id)
+COLEMAK = KC.DF(colemak.layer_id)
 RET = KC.LALT(KC.ASTR)
 LKUP = KC.LALT(KC.DOT)
 GUI_T = KC.MT(KC.T, KC.LGUI(KC.T), prefer_hold=False, tap_time=300)
@@ -92,17 +92,12 @@ SHIFT_SLASH = KC.MT(KC.SLASH, KC.RSFT, prefer_hold=True)
 SHIFT_BACKSLASH = KC.MT(KC.BACKSLASH, KC.RSFT, prefer_hold=True)
 LGUI_ESC = KC.MT(KC.ESC, KC.LGUI, prefer_hold=True)
 CTRL_TAB = KC.MT(KC.TAB, KC.LCTRL, prefer_hold=True)
-ALT_OSNUM = KC.MT(KC.OS(KC.MO(NUM_LAYER)), KC.LALT, prefer_hold=True)
-NUM_ENTER = KC.LT(NUM_LAYER, KC.ENTER, prefer_hold=True)
+ALT_OSNUM = KC.MT(KC.OS(KC.MO(numbers.layer_id)), KC.LALT, prefer_hold=True)
+NUM_ENTER = KC.LT(numbers.layer_id, KC.ENTER, prefer_hold=True)
 HYPR_SPACE = KC.MT(KC.SPACE, KC.HYPR, prefer_hold=False)
-FKEY_BKSP = KC.LT(FKEY_LAYER, KC.BKSP, prefer_hold=False)
+FKEY_BKSP = KC.LT(fkeys.layer_id, KC.BKSP, prefer_hold=False)
 
 # --------------- Key maps ---------------
-
-qwerty = Mapper36()
-colemak = Mapper36()
-numbers = Mapper36()
-fkeys = Mapper36()
 
 qwerty.left(
     KC.Q,       KC.W,       KC.E,       KC.R,       GUI_T,

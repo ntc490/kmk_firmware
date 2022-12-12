@@ -110,10 +110,14 @@ class Mapper42():
         return self._map
 
 class Mapper36():
+    layer_count = 0
+
     # Create 36 kep Midnight keyboard map by separately defining the
     # left and right sides. Just makes definition easier to read.
     def __init__(self):
         self._map = [0] * 42
+        self._layer_id = Mapper36.layer_count
+        Mapper36.layer_count += 1
 
     def left(self, *keys):
         self._map[0] = KC.NO
@@ -160,6 +164,10 @@ class Mapper36():
         self._map[39] = keys[15]
         self._map[40] = keys[16]
         self._map[41] = keys[17]
+
+    @property
+    def layer_id(self):
+        return self._layer_id
 
     def map(self):
         return self._map

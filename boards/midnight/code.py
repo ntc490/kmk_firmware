@@ -61,7 +61,6 @@ from kmk.modules.mouse_keys import MouseKeys
 
 keyboard = KMKKeyboard()
 
-
 keyboard.modules.extend([ Layers(), ModTap(), OneShot(), MouseKeys() ])
 
 # --------------- Layer Indexes ---------------
@@ -70,6 +69,7 @@ qwerty = Mapper36()
 colemak = Mapper36()
 numbers = Mapper36()
 fkeys = Mapper36()
+snake = Mapper36()
 
 # --------------- Key Definitions and Aliases ---------------
 
@@ -85,6 +85,7 @@ GUI_X = KC.MT(KC.X, KC.LGUI(KC.X), prefer_hold=False, tap_time=300)
 GUI_C = KC.MT(KC.C, KC.LGUI(KC.C), prefer_hold=False, tap_time=300)
 GUI_V = KC.MT(KC.V, KC.LGUI(KC.V), prefer_hold=False, tap_time=300)
 GUI_M = KC.MT(KC.M, KC.LGUI(KC.M), prefer_hold=False, tap_time=300)
+SNAKE_TG = KC.TG(snake.layer_id)
 
 # Fancy mod-tap/layer-tap multi-function keys
 SHIFT_Z = KC.MT(KC.Z, KC.LSFT, prefer_hold=True)
@@ -134,7 +135,7 @@ numbers.left(
 numbers.right(
     KC.N6,      KC.N7,      KC.N8,      KC.N9,      KC.N0,
     KC.LEFT,    KC.DOWN,    KC.UP,      KC.RIGHT,   KC.QUOTE,
-    NEXTWIN,    RET,        LKUP,       _______,    SHIFT_BACKSLASH,
+    NEXTWIN,    SNAKE_TG,   LKUP,       _______,    SHIFT_BACKSLASH,
     KC.BKSP,    _______,    _______
 )
 
@@ -151,13 +152,28 @@ fkeys.right(
     _______,    _______,   KC.SPACE
 )
 
+# Change space to underscore - exit with ESC
+snake.left(
+    _______,    _______,    _______,    _______,    _______,
+    _______,    _______,    _______,    _______,    _______,
+    _______,    _______,    _______,    _______,    _______,
+                            SNAKE_TG,   _______,  _______
+)
+snake.right(
+    _______,    _______,    _______,    _______,    _______,
+    _______,    _______,    _______,    _______,    _______,
+    _______,    _______,    _______,    _______,    _______,
+    _______,    _______,    KC.UNDS
+)
+
 # fmt: off
 # flake8: noqa
 keyboard.keymap = [
     qwerty.map(),
     colemak.map(),
     numbers.map(),
-    fkeys.map()
+    fkeys.map(),
+    snake.map()
 ]
 
 if __name__ == "__main__":

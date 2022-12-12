@@ -51,6 +51,18 @@
 #               |       |       |       |      |(hold) |       | SPACE |
 #               '-----------------------'      '-------'-------'-------'
 #
+# Uppercase Snake
+# ,-----.-----.-----.-----.-----.                      ,-----.-----.-----.-----.-----.
+# | Q   | W   | E   | R   | T   |                      | Y   | U   | I   | O   | P   |
+# |-----+-----+-----+-----+-----|                      |-----+-----+-----+-----+-----|
+# | A   | S   | D   | F   | G   |   (ucase letters)    | H   | J   | K   | L   |     |
+# |-----+-----+-----+-----+-----+                      |-----+-----+-----+-----+-----|
+# |     | X   | C   | V   | B   |                      | N   | M   |     |     |     |
+# `-----'-----'-----'-----'-----'                      `-----'-----'-----'-----'-----'
+#               .-------.-------.-------.      .-------.-------.-------.
+#               |       |       |       |      | EXIT  |       |  UNDS |
+#               '-----------------------'      '-------'-------'-------'
+#
 # Snake
 # ,-----.-----.-----.-----.-----.                      ,-----.-----.-----.-----.-----.
 # |     |     |     |     |     |                      |     |     |     |     |     |
@@ -93,7 +105,7 @@
 # |-----+-----+-----+-----+-----|                      |-----+-----+-----+-----+-----|
 # | XXX | XXX | XXX | XXX | XXX |                      |MINUS|LKUP | RET | XXX |PLUS |
 # |-----+-----+-----+-----+-----+                      |-----+-----+-----+-----+-----|
-# |     | XXX | XXX | XXX | XXX |                      | XXX |SNAKE|CAMEL|KEBAB|     |
+# |     | XXX | XXX | XXX | XXX |                      |USNAK|SNAKE|CAMEL|KEBAB|     |
 # `-----'-----'-----'-----'-----'                      `-----'-----'-----'-----'-----'
 #               .-------.-------.-------.      .-------.-------.-------.
 #               |       |       |       |      | BKSP  | ENTER | SPACE |
@@ -118,6 +130,7 @@ qwerty = Mapper36()
 colemak = Mapper36()
 numbers = Mapper36()
 fkeys = Mapper36()
+upper_snake = Mapper36()
 snake = Mapper36()
 camel = Mapper36()
 kebab = Mapper36()
@@ -137,6 +150,7 @@ GUI_X = KC.MT(KC.X, KC.LGUI(KC.X), prefer_hold=False, tap_time=300)
 GUI_C = KC.MT(KC.C, KC.LGUI(KC.C), prefer_hold=False, tap_time=300)
 GUI_V = KC.MT(KC.V, KC.LGUI(KC.V), prefer_hold=False, tap_time=300)
 GUI_M = KC.MT(KC.M, KC.LGUI(KC.M), prefer_hold=False, tap_time=300)
+USNAKE_TG = KC.TG(upper_snake.layer_id)
 SNAKE_TG = KC.TG(snake.layer_id)
 CAMEL_TG = KC.TG(camel.layer_id)
 KEBAB_TG = KC.TG(kebab.layer_id)
@@ -206,6 +220,19 @@ fkeys.right(
     _______,    _______,   KC.SPACE
 )
 
+upper_snake.left(
+    KC.LSFT(KC.Q), KC.LSFT(KC.W), KC.LSFT(KC.E), KC.LSFT(KC.R), KC.LSFT(KC.T),
+    KC.LSFT(KC.A), KC.LSFT(KC.S), KC.LSFT(KC.D), KC.LSFT(KC.F), KC.LSFT(KC.G),
+    KC.LSFT(KC.Z), KC.LSFT(KC.X), KC.LSFT(KC.C), KC.LSFT(KC.V), KC.LSFT(KC.B),
+                                  USNAKE_TG,     _______,       _______
+)
+upper_snake.right(
+    KC.LSFT(KC.Y), KC.LSFT(KC.U), KC.LSFT(KC.I), KC.LSFT(KC.O), KC.LSFT(KC.P),
+    KC.LSFT(KC.H), KC.LSFT(KC.J), KC.LSFT(KC.K), KC.LSFT(KC.L), _______,
+    KC.LSFT(KC.N), KC.LSFT(KC.M), _______,       _______,       _______,
+    _______,       _______,       KC.UNDS
+)
+
 # Change space to underscore - exit with ESC
 snake.left(
     _______,    _______,    _______,    _______,    _______,
@@ -259,7 +286,7 @@ power.left(
 power.right(
     XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    KC.UNDS,
     KC.MINUS,   LKUP,       RET,        XXXXXXX,    KC.PLUS,
-    XXXXXXX,    SNAKE_TG,   CAMEL_TG,   KEBAB_TG,   _______,
+    USNAKE_TG,  SNAKE_TG,   CAMEL_TG,   KEBAB_TG,   _______,
     KC.BKSP,    KC.ENTER,   KC.SPACE
 )
 
@@ -270,6 +297,7 @@ keyboard.keymap = [
     colemak.map(),
     numbers.map(),
     fkeys.map(),
+    upper_snake.map(),
     snake.map(),
     camel.map(),
     kebab.map(),

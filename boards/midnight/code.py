@@ -71,6 +71,7 @@ numbers = Mapper36()
 fkeys = Mapper36()
 snake = Mapper36()
 camel = Mapper36()
+kebab = Mapper36()
 
 # --------------- Key Definitions and Aliases ---------------
 
@@ -88,6 +89,7 @@ GUI_V = KC.MT(KC.V, KC.LGUI(KC.V), prefer_hold=False, tap_time=300)
 GUI_M = KC.MT(KC.M, KC.LGUI(KC.M), prefer_hold=False, tap_time=300)
 SNAKE_TG = KC.TG(snake.layer_id)
 CAMEL_TG = KC.TG(camel.layer_id)
+KEBAB_TG = KC.TG(kebab.layer_id)
 
 # Fancy mod-tap/layer-tap multi-function keys
 SHIFT_Z = KC.MT(KC.Z, KC.LSFT, prefer_hold=True)
@@ -137,7 +139,7 @@ numbers.left(
 numbers.right(
     KC.N6,      KC.N7,      KC.N8,      KC.N9,      KC.N0,
     KC.LEFT,    KC.DOWN,    KC.UP,      KC.RIGHT,   KC.QUOTE,
-    NEXTWIN,    SNAKE_TG,   CAMEL_TG,   _______,    SHIFT_BACKSLASH,
+    NEXTWIN,    SNAKE_TG,   CAMEL_TG,   KEBAB_TG,   SHIFT_BACKSLASH,
     KC.BKSP,    _______,    _______
 )
 
@@ -183,6 +185,20 @@ camel.right(
     _______,    _______,    KC.OS(KC.LSFT)
 )
 
+# Change space to dash - exit with ESC
+kebab.left(
+    _______,    _______,    _______,    _______,    _______,
+    _______,    _______,    _______,    _______,    _______,
+    _______,    _______,    _______,    _______,    _______,
+                            KEBAB_TG,   _______,  _______
+)
+kebab.right(
+    _______,    _______,    _______,    _______,    _______,
+    _______,    _______,    _______,    _______,    _______,
+    _______,    _______,    _______,    _______,    _______,
+    _______,    _______,    KC.MINUS
+)
+
 # fmt: off
 # flake8: noqa
 keyboard.keymap = [
@@ -191,7 +207,8 @@ keyboard.keymap = [
     numbers.map(),
     fkeys.map(),
     snake.map(),
-    camel.map()
+    camel.map(),
+    kebab.map()
 ]
 
 if __name__ == "__main__":

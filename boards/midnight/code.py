@@ -86,6 +86,18 @@
 #               .-------.-------.-------.      .-------.-------.-------.
 #               |       |       |       |      | EXIT  |       | MINUS |
 #               '-----------------------'      '-------'-------'-------'
+#
+# Power
+# ,-----.-----.-----.-----.-----.                      ,-----.-----.-----.-----.-----.
+# | XXX | XXX | XXX | XXX | XXX |                      | XXX | XXX | XXX | XXX |UNDS |
+# |-----+-----+-----+-----+-----|                      |-----+-----+-----+-----+-----|
+# | XXX | XXX | XXX | XXX | XXX |                      |MINUS|LKUP | RET | XXX |PLUS |
+# |-----+-----+-----+-----+-----+                      |-----+-----+-----+-----+-----|
+# |     | XXX | XXX | XXX | XXX |                      | XXX |SNAKE|CAMEL|KEBAB|     |
+# `-----'-----'-----'-----'-----'                      `-----'-----'-----'-----'-----'
+#               .-------.-------.-------.      .-------.-------.-------.
+#               |       |       |       |      | BKSP  | ENTER | SPACE |
+#               '-----------------------'      '-------'-------'-------'
 
 import board
 from kb import KMKKeyboard, Mapper36
@@ -94,10 +106,11 @@ from kmk.modules.layers import Layers
 from kmk.modules.modtap import ModTap
 from kmk.modules.oneshot import OneShot
 from kmk.modules.mouse_keys import MouseKeys
+from kmk.modules.tapdance import TapDance
 
 keyboard = KMKKeyboard()
 
-keyboard.modules.extend([ Layers(), ModTap(), OneShot(), MouseKeys() ])
+keyboard.modules.extend([ Layers(), ModTap(), OneShot(), MouseKeys(), TapDance() ])
 
 # --------------- Layer Indexes ---------------
 
@@ -108,6 +121,7 @@ fkeys = Mapper36()
 snake = Mapper36()
 camel = Mapper36()
 kebab = Mapper36()
+power = Mapper36()
 
 # --------------- Key Definitions and Aliases ---------------
 
@@ -133,7 +147,7 @@ SHIFT_SLASH = KC.MT(KC.SLASH, KC.RSFT, prefer_hold=True)
 SHIFT_BACKSLASH = KC.MT(KC.BACKSLASH, KC.RSFT, prefer_hold=True)
 LGUI_ESC = KC.MT(KC.ESC, KC.LGUI, prefer_hold=True)
 CTRL_TAB = KC.MT(KC.TAB, KC.LCTRL, prefer_hold=True)
-ALT_OSNUM = KC.MT(KC.OS(KC.MO(numbers.layer_id)), KC.LALT, prefer_hold=True)
+ALT_PWR = KC.TD(KC.LALT, KC.MO(power.layer_id))
 NUM_ENTER = KC.LT(numbers.layer_id, KC.ENTER, prefer_hold=True)
 HYPR_SPACE = KC.MT(KC.SPACE, KC.HYPR, prefer_hold=False)
 FKEY_BKSP = KC.LT(fkeys.layer_id, KC.BKSP, prefer_hold=False)
@@ -144,7 +158,7 @@ qwerty.left(
     KC.Q,       KC.W,       KC.E,       KC.R,       GUI_T,
     KC.A,       KC.S,       KC.D,       KC.F,       KC.G,
     SHIFT_Z,    GUI_X,      GUI_C,      GUI_V,      KC.B,
-                            LGUI_ESC,   CTRL_TAB,   ALT_OSNUM
+                            LGUI_ESC,   CTRL_TAB,   ALT_PWR
 )
 qwerty.right(
     KC.Y,       KC.U,       KC.I,       KC.O,       KC.P,
@@ -157,7 +171,7 @@ colemak.left(
     KC.Q,       KC.W,       KC.F,       KC.P,       KC.B,
     KC.A,       KC.R,       KC.S,       KC.T,       KC.G,
     SHIFT_Z,    KC.X,       KC.C,       KC.D,       KC.V,
-                            LGUI_ESC,   CTRL_TAB,   ALT_OSNUM
+                            LGUI_ESC,   CTRL_TAB,   ALT_PWR
 )
 colemak.right(
     KC.J,       KC.L,       KC.U,       KC.Y,       KC.SEMICOLON,
@@ -175,7 +189,7 @@ numbers.left(
 numbers.right(
     KC.N6,      KC.N7,      KC.N8,      KC.N9,      KC.N0,
     KC.LEFT,    KC.DOWN,    KC.UP,      KC.RIGHT,   KC.QUOTE,
-    NEXTWIN,    SNAKE_TG,   CAMEL_TG,   KEBAB_TG,   SHIFT_BACKSLASH,
+    NEXTWIN,    XXXXXXX,    XXXXXXX,    XXXXXXX,    SHIFT_BACKSLASH,
     KC.BKSP,    _______,    _______
 )
 
@@ -235,6 +249,20 @@ kebab.right(
     _______,    _______,    KC.MINUS
 )
 
+# Change space to dash - exit with ESC
+power.left(
+    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
+    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
+    _______,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
+                            _______,    _______,    _______
+)
+power.right(
+    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    KC.UNDS,
+    KC.MINUS,   LKUP,       RET,        XXXXXXX,    KC.PLUS,
+    XXXXXXX,    SNAKE_TG,   CAMEL_TG,   KEBAB_TG,   _______,
+    KC.BKSP,    KC.ENTER,   KC.SPACE
+)
+
 # fmt: off
 # flake8: noqa
 keyboard.keymap = [
@@ -244,7 +272,8 @@ keyboard.keymap = [
     fkeys.map(),
     snake.map(),
     camel.map(),
-    kebab.map()
+    kebab.map(),
+    power.map()
 ]
 
 if __name__ == "__main__":

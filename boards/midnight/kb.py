@@ -171,3 +171,11 @@ class Mapper36():
 
     def map(self):
         return self._map
+
+def add_keyboard_layer(keyboard, *layers):
+    # Ensure keyboard layers are added in proper order
+    for id in range(len(layers)):
+        for layer in layers:
+            if layer.layer_id == id:
+                keyboard.keymap.append(layer.map())
+                break

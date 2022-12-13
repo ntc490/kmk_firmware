@@ -112,7 +112,7 @@
 #               '-----------------------'      '-------'-------'-------'
 
 import board
-from kb import KMKKeyboard, Mapper36
+from kb import KMKKeyboard, Mapper36, add_keyboard_layer
 from kmk.keys import KC
 from kmk.modules.layers import Layers
 from kmk.modules.modtap import ModTap
@@ -292,17 +292,16 @@ kebab.right(
 
 # fmt: off
 # flake8: noqa
-keyboard.keymap = [
-    qwerty.map(),
-    colemak.map(),
-    numbers.map(),
-    power.map(),
-    fkeys.map(),
-    upper_snake.map(),
-    snake.map(),
-    camel.map(),
-    kebab.map(),
-]
+add_keyboard_layer(keyboard,
+                   qwerty,
+                   colemak,
+                   numbers,
+                   power,
+                   fkeys,
+                   upper_snake,
+                   snake,
+                   camel,
+                   kebab)
 
 if __name__ == "__main__":
     keyboard.go()

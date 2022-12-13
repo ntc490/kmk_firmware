@@ -39,6 +39,18 @@
 #               |       |       |       |      | BKSP  |(hold) |       |
 #               '-------'-------'-------'      '-------'-------'-------'
 #
+# Power
+# ,-----.-----.-----.-----.-----.                      ,-----.-----.-----.-----.-----.
+# | XXX | XXX | XXX | XXX | XXX |                      | XXX | XXX | XXX | XXX |  _  |
+# |-----+-----+-----+-----+-----|                      |-----+-----+-----+-----+-----|
+# | XXX | XXX | XXX | XXX | XXX |                      | - _ |LKUP | RET | XXX |  +  |
+# |-----+-----+-----+-----+-----+                      |-----+-----+-----+-----+-----|
+# |     | XXX | XXX | XXX | XXX |                      |USNAK|SNAKE|CAMEL|KEBAB|     |
+# `-----'-----'-----'-----'-----'                      `-----'-----'-----'-----'-----'
+#               .-------.-------.-------.      .-------.-------.-------.
+#               |       |       |       |      | BKSP  | ENTER | SPACE |
+#               '-----------------------'      '-------'-------'-------'
+#
 # Function keys
 # ,-----.-----.-----.-----.-----.                      ,-----.-----.-----.-----.-----.
 # | F1  | F2  | F3  | F4  | F5  |                      | F6  | F7  | F8  | F9  | F10 |
@@ -98,18 +110,6 @@
 #               .-------.-------.-------.      .-------.-------.-------.
 #               |       |       |       |      | EXIT  |       |  - _  |
 #               '-----------------------'      '-------'-------'-------'
-#
-# Power
-# ,-----.-----.-----.-----.-----.                      ,-----.-----.-----.-----.-----.
-# | XXX | XXX | XXX | XXX | XXX |                      | XXX | XXX | XXX | XXX |  _  |
-# |-----+-----+-----+-----+-----|                      |-----+-----+-----+-----+-----|
-# | XXX | XXX | XXX | XXX | XXX |                      | - _ |LKUP | RET | XXX |  +  |
-# |-----+-----+-----+-----+-----+                      |-----+-----+-----+-----+-----|
-# |     | XXX | XXX | XXX | XXX |                      |USNAK|SNAKE|CAMEL|KEBAB|     |
-# `-----'-----'-----'-----'-----'                      `-----'-----'-----'-----'-----'
-#               .-------.-------.-------.      .-------.-------.-------.
-#               |       |       |       |      | BKSP  | ENTER | SPACE |
-#               '-----------------------'      '-------'-------'-------'
 
 import board
 from kb import KMKKeyboard, Mapper36
@@ -129,12 +129,12 @@ keyboard.modules.extend([ Layers(), ModTap(), OneShot(), MouseKeys(), TapDance()
 qwerty = Mapper36()
 colemak = Mapper36()
 numbers = Mapper36()
+power = Mapper36()
 fkeys = Mapper36()
 upper_snake = Mapper36()
 snake = Mapper36()
 camel = Mapper36()
 kebab = Mapper36()
-power = Mapper36()
 
 # --------------- Key Definitions and Aliases ---------------
 
@@ -207,6 +207,20 @@ numbers.right(
     KC.BKSP,    _______,    _______
 )
 
+# Change space to dash - exit with ESC
+power.left(
+    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
+    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
+    _______,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
+                            _______,    _______,    _______
+)
+power.right(
+    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    KC.UNDS,
+    KC.MINUS,   LKUP,       RET,        XXXXXXX,    KC.PLUS,
+    USNAKE_TG,  SNAKE_TG,   CAMEL_TG,   KEBAB_TG,   _______,
+    KC.BKSP,    KC.ENTER,   KC.SPACE
+)
+
 fkeys.left(
     KC.F1,      KC.F2,      KC.F3,      KC.F4,      KC.F5,
     KC.F11,     KC.F12,     XXXXXXX,    XXXXXXX,    XXXXXXX,
@@ -276,32 +290,18 @@ kebab.right(
     _______,    _______,    KC.MINUS
 )
 
-# Change space to dash - exit with ESC
-power.left(
-    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
-    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
-    _______,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
-                            _______,    _______,    _______
-)
-power.right(
-    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    KC.UNDS,
-    KC.MINUS,   LKUP,       RET,        XXXXXXX,    KC.PLUS,
-    USNAKE_TG,  SNAKE_TG,   CAMEL_TG,   KEBAB_TG,   _______,
-    KC.BKSP,    KC.ENTER,   KC.SPACE
-)
-
 # fmt: off
 # flake8: noqa
 keyboard.keymap = [
     qwerty.map(),
     colemak.map(),
     numbers.map(),
+    power.map(),
     fkeys.map(),
     upper_snake.map(),
     snake.map(),
     camel.map(),
     kebab.map(),
-    power.map()
 ]
 
 if __name__ == "__main__":

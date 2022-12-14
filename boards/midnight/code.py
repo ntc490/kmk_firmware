@@ -208,7 +208,6 @@ numbers.right(
     KC.BKSP,    _______,    _______
 )
 
-# Change space to dash - exit with ESC
 power.left(
     KC.TAB,     XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
     KC.TILD,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,

@@ -43,7 +43,7 @@
 # ,-----.-----.-----.-----.-----.                      ,-----.-----.-----.-----.-----.
 # | TAB | XXX | XXX | XXX | XXX |                      | XXX | XXX | XXX | XXX |  _  |
 # |-----+-----+-----+-----+-----|                      |-----+-----+-----+-----+-----|
-# |^TAB | XXX | XXX | XXX | XXX |                      | - _ |LKUP | RET | XXX |  +  |
+# |  ~  |  `  | XXX | XXX | XXX |                      | - _ |LKUP | RET | XXX |  +  |
 # |-----+-----+-----+-----+-----+                      |-----+-----+-----+-----+-----|
 # |     | XXX | XXX | XXX | XXX |                      |USNAK|SNAKE|CAMEL|KEBAB|     |
 # `-----'-----'-----'-----'-----'                      `-----'-----'-----'-----'-----'
@@ -211,7 +211,7 @@ numbers.right(
 # Change space to dash - exit with ESC
 power.left(
     KC.TAB,     XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
-    LCTRL_TAB,  XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
+    KC.TILD,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
     _______,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
                             _______,    _______,    _______
 )

@@ -31,7 +31,7 @@
 # ,-----.-----.-----.-----.-----.                      ,-----.-----.-----.-----.-----.
 # | 1 ! | 2 @ | 3 # | 4 $ | 5 % |                      | 6 ^ | 7 & | 8 * | 9 ( | 0 ) |
 # |-----+-----+-----+-----+-----|                      |-----+-----+-----+-----+-----|
-# | `~  |HOME |PGUP |PGDN | END |                      |LEFT |DOWN | UP  |RGHT | ' " |
+# | ` ~ |HOME |PGUP |PGDN | END |                      |LEFT |DOWN | UP  |RGHT | ' " |
 # |-----+-----+-----+-----+-----+                      |-----+-----+-----+-----+-----|
 # |SHFT | = + | [ { | ] } | - _ |                      |NXTWN| XXX | XXX | XXX |SHF\||
 # `-----'-----'-----'-----'-----'                      `-----'-----'-----'-----'-----'
@@ -197,7 +197,7 @@ colemak.right(
 
 numbers.left(
     KC.N1,      KC.N2,      KC.N3,      KC.N4,      KC.N5,
-    KC.TILD,    KC.HOME,    KC.PGUP,    KC.PGDN,    KC.END,
+    KC.GRAVE,   KC.HOME,    KC.PGUP,    KC.PGDN,    KC.END,
     KC.LSFT,    KC.EQUAL,   KC.LBRC,    KC.RBRC,    KC.MINUS,
                             _______,    _______,    _______
 )

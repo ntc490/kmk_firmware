@@ -158,6 +158,7 @@ KEBAB_TG = KC.TG(kebab.layer_id)
 
 # Fancy mod-tap/layer-tap multi-function keys
 SHIFT_Z = KC.MT(KC.Z, KC.LSFT, prefer_hold=True)
+SHIFT_BZ = KC.MT(KC.LSFT(KC.Z), KC.LSFT, prefer_hold=True)
 SHIFT_SLASH = KC.MT(KC.SLASH, KC.RSFT, prefer_hold=True)
 SHIFT_BACKSLASH = KC.MT(KC.BACKSLASH, KC.RSFT, prefer_hold=True)
 LGUI_ESC = KC.MT(KC.ESC, KC.LGUI, prefer_hold=True)
@@ -237,7 +238,7 @@ fkeys.right(
 upper_snake.left(
     KC.LSFT(KC.Q), KC.LSFT(KC.W), KC.LSFT(KC.E), KC.LSFT(KC.R), KC.LSFT(KC.T),
     KC.LSFT(KC.A), KC.LSFT(KC.S), KC.LSFT(KC.D), KC.LSFT(KC.F), KC.LSFT(KC.G),
-    KC.LSFT(KC.Z), KC.LSFT(KC.X), KC.LSFT(KC.C), KC.LSFT(KC.V), KC.LSFT(KC.B),
+    SHIFT_BZ,      KC.LSFT(KC.X), KC.LSFT(KC.C), KC.LSFT(KC.V), KC.LSFT(KC.B),
                                   USNAKE_TG,     _______,       _______
 )
 upper_snake.right(

@@ -12,8 +12,9 @@
 # |SHF/z| x   | c   | v   | b   |                      | n   | m   | , < | . > |SHF/?|
 # `-----'-----'-----'-----'-----'                      `-----'-----'-----'-----'-----'
 #               .-------.-------.-------.      .-------.-------.-------.
-#               |GUI/ESC|CTR/TAB|ALT/PWR|      |FKY/BSP|NUM/ENT|HYP/SPC|
+#               |GUI/BSP|CTR/TAB|ALT/*TD|      |ALT/HYP| ENTER |NUM/SPC|
 #               '-------'-------'-------'      '-------'-------'-------'
+# *TD: tap2=PWR, tap3=FKEYS
 #
 # Numbers
 # ,-----.-----.-----.-----.-----.                      ,-----.-----.-----.-----.-----.
@@ -24,7 +25,7 @@
 # |SHFT | = + | [ { | ] } | - _ |                      |NXTWN| XXX |     |     |SHF\||
 # `-----'-----'-----'-----'-----'                      `-----'-----'-----'-----'-----'
 #               .-------.-------.-------.      .-------.-------.-------.
-#               |       |       |       |      | BKSP  |(hold) |       |
+#               |       |       |       |      |       |       | (hold)|
 #               '-------'-------'-------'      '-------'-------'-------'
 #
 # Power
@@ -36,8 +37,8 @@
 # |     | XXX | XXX | XXX | XXX |                      |USNAK|SNAKE|CAMEL|KEBAB|     |
 # `-----'-----'-----'-----'-----'                      `-----'-----'-----'-----'-----'
 #               .-------.-------.-------.      .-------.-------.-------.
-#               |       |       |(hold2)|      | BKSP  | ENTER | SPACE |
-#               '-----------------------'      '-------'-------'-------'
+#               | BKSP  |       |(hold2)|      |       |       | SPACE |
+#               '-------'-------'-------'      '-------'-------'-------'
 #
 # Function keys
 # ,-----.-----.-----.-----.-----.                      ,-----.-----.-----.-----.-----.
@@ -48,8 +49,8 @@
 # | SHFT| XXX |CAPS |QWERT|COLEM|                      |BTN1 | BTN2| XXX | XXX |SHFT |
 # `-----'-----'-----'-----'-----'                      `-----'-----'-----'-----'-----'
 #               .-------.-------.-------.      .-------.-------.-------.
-#               |       |       |       |      |(hold) |       | SPACE |
-#               '-----------------------'      '-------'-------'-------'
+#               | BKSP  |       |(hold3)|      |       |       | SPACE |
+#               '-------'-------'-------'      '-------'-------'-------'
 #
 # Uppercase Snake
 # ,-----.-----.-----.-----.-----.                      ,-----.-----.-----.-----.-----.
@@ -60,8 +61,8 @@
 # |     | X   | C   | V   | B   |                      | N   | M   |     |     |     |
 # `-----'-----'-----'-----'-----'                      `-----'-----'-----'-----'-----'
 #               .-------.-------.-------.      .-------.-------.-------.
-#               |       |       |       |      | EXIT  |       |   _   |
-#               '-----------------------'      '-------'-------'-------'
+#               |       |       | EXIT  |      |       |       |   _   |
+#               '-------'-------'-------'      '-------'-------'-------'
 #
 # Snake
 # ,-----.-----.-----.-----.-----.                      ,-----.-----.-----.-----.-----.
@@ -72,8 +73,8 @@
 # |     |     |     |     |     |                      |     |     |     |     |     |
 # `-----'-----'-----'-----'-----'                      `-----'-----'-----'-----'-----'
 #               .-------.-------.-------.      .-------.-------.-------.
-#               |       |       |       |      | EXIT  |       |   _   |
-#               '-----------------------'      '-------'-------'-------'
+#               |       |       | EXIT  |      |       |       |   _   |
+#               '-------'-------'-------'      '-------'-------'-------'
 #
 # Camel
 # ,-----.-----.-----.-----.-----.                      ,-----.-----.-----.-----.-----.
@@ -84,8 +85,8 @@
 # |     |     |     |     |     |                      |     |     |     |     |     |
 # `-----'-----'-----'-----'-----'                      `-----'-----'-----'-----'-----'
 #               .-------.-------.-------.      .-------.-------.-------.
-#               |       |       |       |      | EXIT  |       |OS(SFT)|
-#               '-----------------------'      '-------'-------'-------'
+#               |       |       | EXIT  |      |       |       |OS(SFT)|
+#               '-------'-------'-------'      '-------'-------'-------'
 #
 # Kebab
 # ,-----.-----.-----.-----.-----.                      ,-----.-----.-----.-----.-----.
@@ -96,8 +97,8 @@
 # |     |     |     |     |     |                      |     |     |     |     |     |
 # `-----'-----'-----'-----'-----'                      `-----'-----'-----'-----'-----'
 #               .-------.-------.-------.      .-------.-------.-------.
-#               |       |       |       |      | EXIT  |       |   -   |
-#               '-----------------------'      '-------'-------'-------'
+#               |       |       | EXIT  |      |   -   |
+#               '-------'-------'-------'      '-------'-------'-------'
 
 import board
 from kb import KMKKeyboard, Mapper36, add_keyboard_layer
@@ -147,12 +148,11 @@ SHIFT_Z = KC.MT(KC.Z, KC.LSFT, prefer_hold=True)
 SHIFT_BZ = KC.MT(KC.LSFT(KC.Z), KC.LSFT, prefer_hold=True)
 SHIFT_SLASH = KC.MT(KC.SLASH, KC.RSFT, prefer_hold=True)
 SHIFT_BACKSLASH = KC.MT(KC.BACKSLASH, KC.RSFT, prefer_hold=True)
-LGUI_ESC = KC.MT(KC.ESC, KC.LGUI, prefer_hold=True)
+LGUI_BSP = KC.MT(KC.BKSP, KC.LGUI, prefer_hold=True)
 CTRL_TAB = KC.MT(KC.TAB, KC.LCTRL, prefer_hold=True)
-ALT_PWR = KC.TD(KC.LALT, KC.MO(power.layer_id))
-NUM_ENTER = KC.LT(numbers.layer_id, KC.ENTER, prefer_hold=True)
-HYPR_SPACE = KC.MT(KC.SPACE, KC.HYPR, prefer_hold=False)
-FKEY_BKSP = KC.LT(fkeys.layer_id, KC.BKSP, prefer_hold=False)
+ALT_PWR = KC.TD(KC.LALT, KC.MO(power.layer_id), KC.MO(fkeys.layer_id))
+ALT_HYPR = KC.TD(KC.LALT, KC.HYPR)
+NUM_SPACE = KC.LT(numbers.layer_id, KC.SPACE, prefer_hold=False)
 
 # --------------- Key maps ---------------
 
@@ -160,13 +160,13 @@ qwerty.left(
     KC.Q,       KC.W,       KC.E,       KC.R,       GUI_T,
     KC.A,       KC.S,       KC.D,       KC.F,       KC.G,
     SHIFT_Z,    GUI_X,      GUI_C,      GUI_V,      KC.B,
-                            LGUI_ESC,   CTRL_TAB,   ALT_PWR
+                            LGUI_BSP,   CTRL_TAB,   ALT_PWR
 )
 qwerty.right(
     KC.Y,       KC.U,       KC.I,       KC.O,       KC.P,
     KC.H,       KC.J,       KC.K,       KC.L,       KC.SEMICOLON,
     KC.N,       GUI_M,      KC.COMMA,   KC.DOT,     SHIFT_SLASH,
-    FKEY_BKSP,  NUM_ENTER,  HYPR_SPACE
+    ALT_HYPR,   KC.ENTER,   NUM_SPACE
 )
 
 numbers.left(
@@ -179,27 +179,27 @@ numbers.right(
     KC.N6,      KC.N7,      KC.N8,      KC.N9,      KC.N0,
     KC.LEFT,    KC.DOWN,    KC.UP,      KC.RIGHT,   KC.QUOTE,
     NEXTWIN,    XXXXXXX,    _______,    _______,    SHIFT_BACKSLASH,
-    KC.BKSP,    _______,    _______
+    _______,    _______,    _______
 )
 
 power.left(
     KC.ESC,     XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
     KC.TAB,     XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
     _______,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
-                            _______,    _______,    _______
+                            KC.BKSP,    _______,    _______
 )
 power.right(
     XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    KC.UNDS,
     KC.MINUS,   LKUP,       RET,        XXXXXXX,    KC.PLUS,
     USNAKE_TG,  SNAKE_TG,   CAMEL_TG,   KEBAB_TG,   _______,
-    KC.BKSP,    KC.ENTER,   KC.SPACE
+    _______,    _______,    KC.SPACE
 )
 
 fkeys.left(
     KC.F1,      KC.F2,      KC.F3,      KC.F4,      KC.F5,
     KC.F11,     KC.F12,     XXXXXXX,    XXXXXXX,    XXXXXXX,
     KC.LSFT,    XXXXXXX,    KC.CAPS,    QWERTY,     _______,
-                            _______,    _______,    _______
+                            KC.BKSP,    _______,    _______
 )
 fkeys.right(
     KC.F6,      KC.F7,     KC.F8,      KC.F9,      KC.F10,
@@ -212,7 +212,7 @@ upper_snake.left(
     KC.LSFT(KC.Q), KC.LSFT(KC.W), KC.LSFT(KC.E), KC.LSFT(KC.R), KC.LSFT(KC.T),
     KC.LSFT(KC.A), KC.LSFT(KC.S), KC.LSFT(KC.D), KC.LSFT(KC.F), KC.LSFT(KC.G),
     SHIFT_BZ,      KC.LSFT(KC.X), KC.LSFT(KC.C), KC.LSFT(KC.V), KC.LSFT(KC.B),
-                                  USNAKE_TG,     _______,       _______
+                                  _______,       _______,       USNAKE_TG
 )
 upper_snake.right(
     KC.LSFT(KC.Y), KC.LSFT(KC.U), KC.LSFT(KC.I), KC.LSFT(KC.O), KC.LSFT(KC.P),
@@ -226,7 +226,7 @@ snake.left(
     _______,    _______,    _______,    _______,    _______,
     _______,    _______,    _______,    _______,    _______,
     _______,    _______,    _______,    _______,    _______,
-                            SNAKE_TG,   _______,    _______
+                            _______,    _______,    SNAKE_TG
 )
 snake.right(
     _______,    _______,    _______,    _______,    _______,
@@ -241,7 +241,7 @@ camel.left(
     _______,    _______,    _______,    _______,    KC.T,
     _______,    _______,    _______,    _______,    _______,
     _______,    KC.X,       KC.C,       KC.V,       _______,
-                            CAMEL_TG,   _______,    _______
+                            _______,    _______,    CAMEL_TG
 )
 camel.right(
     _______,    _______,    _______,    _______,    _______,
@@ -255,7 +255,7 @@ kebab.left(
     _______,    _______,    _______,    _______,    _______,
     _______,    _______,    _______,    _______,    _______,
     _______,    _______,    _______,    _______,    _______,
-                            KEBAB_TG,   _______,    _______
+                            _______,    _______,    KEBAB_TG
 )
 kebab.right(
     _______,    _______,    _______,    _______,    _______,

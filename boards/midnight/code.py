@@ -29,9 +29,9 @@
 #
 # Power
 # ,-----.-----.-----.-----.-----.                      ,-----.-----.-----.-----.-----.
-# | TAB | XXX | XXX | XXX | XXX |                      | XXX | XXX | XXX | XXX |  _  |
+# | ESC | XXX | XXX | XXX | XXX |                      | XXX | XXX | XXX | XXX |  _  |
 # |-----+-----+-----+-----+-----|                      |-----+-----+-----+-----+-----|
-# |  ~  |  `  | XXX | XXX | XXX |                      | - _ |LKUP | RET | XXX |  +  |
+# | TAB |  `  | XXX | XXX | XXX |                      | - _ |LKUP | RET | XXX |  +  |
 # |-----+-----+-----+-----+-----+                      |-----+-----+-----+-----+-----|
 # |     | XXX | XXX | XXX | XXX |                      |USNAK|SNAKE|CAMEL|KEBAB|     |
 # `-----'-----'-----'-----'-----'                      `-----'-----'-----'-----'-----'
@@ -183,8 +183,8 @@ numbers.right(
 )
 
 power.left(
+    KC.ESC,     XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
     KC.TAB,     XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
-    KC.TILD,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
     _______,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
                             _______,    _______,    _______
 )

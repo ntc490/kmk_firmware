@@ -22,7 +22,7 @@
 # |-----+-----+-----+-----+-----|                      |-----+-----+-----+-----+-----|
 # | ` ~ |HOME |PGUP |PGDN | END |                      |LEFT |DOWN | UP  |RGHT | ' " |
 # |-----+-----+-----+-----+-----+                      |-----+-----+-----+-----+-----|
-# |SHFT | = + | [ { | ] } | - _ |                      |NXTWN| XXX |     |     |SHF\||
+# |LSHFT| = + | [ { | ] } | - _ |                      |NXTWN| XXX |     |     |RSHFT|
 # `-----'-----'-----'-----'-----'                      `-----'-----'-----'-----'-----'
 #               .-------.-------.-------.      .-------.-------.-------.
 #               |       |       |       |      |       |       | (hold)|
@@ -30,14 +30,14 @@
 #
 # Power
 # ,-----.-----.-----.-----.-----.                      ,-----.-----.-----.-----.-----.
-# | ESC | XXX | XXX | XXX | XXX |                      | XXX | XXX | XXX | XXX |  _  |
+# | ESC | XXX |KEBAB|  (  |  )  |                      |  =  | 7 & | 8 * | 9 ( | \ | |
 # |-----+-----+-----+-----+-----|                      |-----+-----+-----+-----+-----|
-# | TAB |  `  | XXX | XXX | XXX |                      | - _ |LKUP | RET | XXX |  +  |
+# | TAB |  ~  |USNAK|  {  |  }  |                      | - _ | 4 $ | 5 % | 6 ^ | ' " |
 # |-----+-----+-----+-----+-----+                      |-----+-----+-----+-----+-----|
-# |     | XXX | XXX | XXX | XXX |                      |USNAK|SNAKE|CAMEL|KEBAB|     |
+# |LSHFT|CAMEL|SNAKE|  [  |  ]  |                      | . > | 1 ! | 2 @ | 3 # |RSHFT|
 # `-----'-----'-----'-----'-----'                      `-----'-----'-----'-----'-----'
 #               .-------.-------.-------.      .-------.-------.-------.
-#               | BKSP  |       |(hold2)|      |       |       | SPACE |
+#               | BKSP  |       |(hold2)|      |       |       |  0 )  |
 #               '-------'-------'-------'      '-------'-------'-------'
 #
 # Function keys
@@ -46,7 +46,7 @@
 # |-----+-----+-----+-----+-----|                      |-----+-----+-----+-----+-----|
 # | F11 | F12 | XXX | XXX | XXX |                      |MLEFT|MDOWN| MUP |MRGHT| XXX |
 # |-----+-----+-----+-----+-----+                      |-----+-----+-----+-----+-----|
-# | SHFT| XXX |CAPS |QWERT|COLEM|                      |BTN1 | BTN2| XXX | XXX |SHFT |
+# |LSHFT| XXX |CAPS |QWERT|COLEM|                      |BTN1 | BTN2| XXX | XXX |RSHFT|
 # `-----'-----'-----'-----'-----'                      `-----'-----'-----'-----'-----'
 #               .-------.-------.-------.      .-------.-------.-------.
 #               | BKSP  |       |(hold3)|      |       |       | SPACE |
@@ -130,8 +130,6 @@ _______ = KC.TRNS
 XXXXXXX = KC.NO
 NEXTWIN = KC.LGUI(KC.GRAVE)
 QWERTY = KC.DF(qwerty.layer_id)
-RET = KC.LALT(KC.ASTR)
-LKUP = KC.LALT(KC.DOT)
 LCTRL_TAB = KC.LCTRL(KC.TAB)
 GUI_T = KC.MT(KC.T, KC.LGUI(KC.T), prefer_hold=False, tap_time=300)
 GUI_X = KC.MT(KC.X, KC.LGUI(KC.X), prefer_hold=False, tap_time=300)
@@ -178,21 +176,21 @@ numbers.left(
 numbers.right(
     KC.N6,      KC.N7,      KC.N8,      KC.N9,      KC.N0,
     KC.LEFT,    KC.DOWN,    KC.UP,      KC.RIGHT,   KC.QUOTE,
-    NEXTWIN,    XXXXXXX,    _______,    _______,    SHIFT_BACKSLASH,
+    NEXTWIN,    XXXXXXX,    _______,    _______,    KC.RSFT,
     _______,    _______,    _______
 )
 
 power.left(
-    KC.ESC,     XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
-    KC.TAB,     XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
-    _______,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
+    KC.ESC,     XXXXXXX,    KEBAB_TG,   KC.LPRN,    KC.RPRN,
+    KC.TAB,     KC.TILD,    USNAKE_TG,  KC.LCBR,    KC.RCBR,
+    KC.LSFT,    CAMEL_TG,   SNAKE_TG,   KC.LBRC,    KC.RBRC,
                             KC.BKSP,    _______,    _______
 )
 power.right(
-    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    KC.UNDS,
-    KC.MINUS,   LKUP,       RET,        XXXXXXX,    KC.PLUS,
-    USNAKE_TG,  SNAKE_TG,   CAMEL_TG,   KEBAB_TG,   _______,
-    _______,    _______,    KC.SPACE
+    KC.EQUAL,   KC.N7,      KC.N8,      KC.N9,      KC.BSLASH,
+    KC.MINUS,   KC.N4,      KC.N5,      KC.N6,      KC.QUOTE,
+    KC.DOT,     KC.N1,      KC.N2,      KC.N3,      KC.RSFT,
+    _______,    _______,    KC.N0
 )
 
 fkeys.left(

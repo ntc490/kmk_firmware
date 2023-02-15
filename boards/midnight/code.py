@@ -15,18 +15,6 @@
 #               |GUI/ESC|CTR/TAB|ALT/PWR|      |FKY/BSP|NUM/ENT|HYP/SPC|
 #               '-------'-------'-------'      '-------'-------'-------'
 #
-# Colemak [base layer]
-# ,-----.-----.-----.-----.-----.                      ,-----.-----.-----.-----.-----.
-# | q   | w   | f   | p   | b   |                      | j   | l   | u   | y   | ; : |
-# |-----+-----+-----+-----+-----|                      |-----+-----+-----+-----+-----|
-# | a   | r   | s   | t   | g   |                      | m   | n   | e   | i   | o   |
-# |-----+-----+-----+-----+-----+                      |-----+-----+-----+-----+-----|
-# |SHF/z| x   | c   | d   | v   |                      | k   | h   | , < | . > |SHF/?|
-# `-----'-----'-----'-----'-----'                      `-----'-----'-----'-----'-----'
-#               .-------.-------.-------.      .-------.-------.-------.
-#               |GUI/ESC|CTR/TAB|ALT/PWR|      |FKY/BSP|NUM/ENT|HYP/SPC|
-#               '-------'-------'-------'      '-------'-------'-------'
-#
 # Numbers
 # ,-----.-----.-----.-----.-----.                      ,-----.-----.-----.-----.-----.
 # | 1 ! | 2 @ | 3 # | 4 $ | 5 % |                      | 6 ^ | 7 & | 8 * | 9 ( | 0 ) |
@@ -127,7 +115,6 @@ keyboard.modules.extend([ Layers(), ModTap(), OneShot(), MouseKeys(), TapDance()
 # --------------- Layer Indexes ---------------
 
 qwerty = Mapper36()
-colemak = Mapper36()
 numbers = Mapper36()
 power = Mapper36()
 fkeys = Mapper36()
@@ -142,7 +129,6 @@ _______ = KC.TRNS
 XXXXXXX = KC.NO
 NEXTWIN = KC.LGUI(KC.GRAVE)
 QWERTY = KC.DF(qwerty.layer_id)
-COLEMAK = KC.DF(colemak.layer_id)
 RET = KC.LALT(KC.ASTR)
 LKUP = KC.LALT(KC.DOT)
 LCTRL_TAB = KC.LCTRL(KC.TAB)
@@ -183,19 +169,6 @@ qwerty.right(
     FKEY_BKSP,  NUM_ENTER,  HYPR_SPACE
 )
 
-colemak.left(
-    KC.Q,       KC.W,       KC.F,       KC.P,       KC.B,
-    KC.A,       KC.R,       KC.S,       KC.T,       KC.G,
-    SHIFT_Z,    KC.X,       KC.C,       KC.D,       KC.V,
-                            LGUI_ESC,   CTRL_TAB,   ALT_PWR
-)
-colemak.right(
-    KC.J,       KC.L,       KC.U,       KC.Y,       KC.SEMICOLON,
-    KC.M,       KC.N,       KC.E,       KC.I,       KC.O,
-    KC.K,       KC.H,       KC.COMMA,   KC.DOT,     SHIFT_SLASH,
-    FKEY_BKSP,  NUM_ENTER,  HYPR_SPACE
-)
-
 numbers.left(
     KC.N1,      KC.N2,      KC.N3,      KC.N4,      KC.N5,
     KC.GRAVE,   KC.HOME,    KC.PGUP,    KC.PGDN,    KC.END,
@@ -225,7 +198,7 @@ power.right(
 fkeys.left(
     KC.F1,      KC.F2,      KC.F3,      KC.F4,      KC.F5,
     KC.F11,     KC.F12,     XXXXXXX,    XXXXXXX,    XXXXXXX,
-    KC.LSFT,    XXXXXXX,    KC.CAPS,    QWERTY,     COLEMAK,
+    KC.LSFT,    XXXXXXX,    KC.CAPS,    QWERTY,     _______,
                             _______,    _______,    _______
 )
 fkeys.right(
@@ -295,7 +268,6 @@ kebab.right(
 # flake8: noqa
 add_keyboard_layer(keyboard,
                    qwerty,
-                   colemak,
                    numbers,
                    power,
                    fkeys,

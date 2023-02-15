@@ -33,7 +33,7 @@
 # |-----+-----+-----+-----+-----|                      |-----+-----+-----+-----+-----|
 # | ` ~ |HOME |PGUP |PGDN | END |                      |LEFT |DOWN | UP  |RGHT | ' " |
 # |-----+-----+-----+-----+-----+                      |-----+-----+-----+-----+-----|
-# |SHFT | = + | [ { | ] } | - _ |                      |NXTWN| XXX | XXX | XXX |SHF\||
+# |SHFT | = + | [ { | ] } | - _ |                      |NXTWN| XXX |     |     |SHF\||
 # `-----'-----'-----'-----'-----'                      `-----'-----'-----'-----'-----'
 #               .-------.-------.-------.      .-------.-------.-------.
 #               |       |       |       |      | BKSP  |(hold) |       |
@@ -205,7 +205,7 @@ numbers.left(
 numbers.right(
     KC.N6,      KC.N7,      KC.N8,      KC.N9,      KC.N0,
     KC.LEFT,    KC.DOWN,    KC.UP,      KC.RIGHT,   KC.QUOTE,
-    NEXTWIN,    XXXXXXX,    XXXXXXX,    XXXXXXX,    SHIFT_BACKSLASH,
+    NEXTWIN,    XXXXXXX,    _______,    _______,    SHIFT_BACKSLASH,
     KC.BKSP,    _______,    _______
 )
 

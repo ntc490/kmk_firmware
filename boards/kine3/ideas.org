@@ -1,0 +1,24 @@
+- TODO:
+  - Add status LEDs
+  - wrist rests (one way or another)
+  - separate mapping layers into left and right
+  - Add "jiggler" module
+  - Add hand detection module to switch layers - mouse-control-layer
+  - Morse code beeper/vibrator support
+  - snake/kebab/camel case mode (space bar mod)
+
+- HOW IT WORKS
+  - coord mapping is determined by the KMK Keyboard class, unless
+    Split() is used as a module. Then it must determine the
+    coord_mapping.
+  - _on_matrix_changed calls _find_key_in_map(), which gets the index
+    of the key from the coord_mapping.
+  - coord_mapping contains key numbers. When a key is
+    pressed/released, we find the index for the key number in the
+    coord_mapping.
+  - split_flip only works for matrix-style keyboards with col and row
+    pins, so you have to flip the keys in the coord_mapping instead in
+    a diode-less setup.
+  - key number -> coord_map (index from key#) -> keymap (KC from index)
+  - key numbers are just a 'range' from offset to offset + number of
+    keys in scanner.

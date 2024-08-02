@@ -36,10 +36,10 @@ qwerty = Mapper42()
 
 keyboard.keymap = [
 [
-    KC.Y,       KC.U,       KC.I,       KC.O,       KC.P,         KC.BACKSLASH,
-    KC.H,       KC.J,       KC.K,       KC.L,       KC.SEMICOLON, KC.QUOTE,
-    KC.N,       KC.M,       KC.COMMA,   KC.DOT,     KC.SLASH,     KC.RSHIFT,
-    KC.RALT, KC.ENTER,   KC.SPACE
+    KC.TAB,  KC.Q, KC.W, KC.E, KC.R, KC.T,        KC.Y, KC.U, KC.I, KC.O, KC.P,         KC.BACKSLASH,
+    KC.NO,   KC.A, KC.S, KC.D, KC.F, KC.G,        KC.H, KC.J, KC.K, KC.L, KC.SEMICOLON, KC.QUOTE,
+    KC.LSFT, KC.Z, KC.X, KC.C, KC.V, KC.B,        KC.N, KC.M, KC.COMMA, KC.DOT, KC.SLASH, KC.RSHIFT,
+          KC.BACKSPACE, KC.LCTRL, KC.LALT,        KC.RALT, KC.ENTER, KC.SPACE
 ]
 ]
 

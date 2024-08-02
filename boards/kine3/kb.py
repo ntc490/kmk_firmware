@@ -11,11 +11,16 @@ from storage import getmount
 # fmt: off
 # The right is a mirror image of the left side
 _KEY_CFG_LEFT = [
-    board.GP2,  board.GP5,  board.GP8,  board.GP11,  board.GP14,  board.GP17,
-    board.GP3,  board.GP6,  board.GP9,  board.GP12,  board.GP15,  board.GP18,
-    board.GP4,  board.GP7,  board.GP10, board.GP13,  board.GP16,  board.GP19,
+    board.GP17, board.GP14, board.GP11, board.GP8,  board.GP5,  board.GP2,
+    board.GP18, board.GP15, board.GP12, board.GP9,  board.GP6,  board.GP3,
+    board.GP19, board.GP16, board.GP13, board.GP10, board.GP7,  board.GP4,
                                         board.GP22,  board.GP26,  board.GP27
 ]
+
+#    board.GP17, board.GP14, board.GP11, board.GP8,  board.GP5,  board.GP2,
+#    board.GP18, board.GP15, board.GP12, board.GP9,  board.GP6,  board.GP3,
+#    board.GP19, board.GP16, board.GP13, board.GP10, board.GP7,  board.GP4,
+#                                        board.GP22,  board.GP26,  board.GP27
 # Fmt: on
 
 # Do side auto-detect like 'Split' here so we can hard-code the target side,

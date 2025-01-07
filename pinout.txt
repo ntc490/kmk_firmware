@@ -1,0 +1,89 @@
+- right hand
+  - col 1
+    - Y: b06: gpio20
+    - H: b07: gpio21
+    - N: b09: gpio22
+  - col 2
+    - U: b11: gpio26
+    - J: b12: gpio27
+    - M: b14: gpio28
+  - col 3
+    - I: t01: gpio15
+    - K: t02: gpio14
+    - ,: t04: gpio13
+  - col 4
+    - O: t05: gpio12
+    - L: t06: gpio11
+    - .: t07: gpio10
+  - col 5
+    - P: t09: gpio9 
+    - :: t10: gpio8
+    - /: t11: gpio7
+  - col 6
+    - \: t12: gpio6
+    - ': t14: gpio5
+    - SHIFT: t15: gpio4
+  - mods
+    - t16: gpio3
+    - b04: gpio18
+    - b05: gpio19
+  - UART
+    - b02: gpio17/UART0-RX
+  - UNUSED
+    - b01: gpio16/UART0-TX (unused)
+    - xxx: gpio0
+    - xxx: gpio1
+    - xxx: gpio2
+    
+
+- left hand
+  - col 1
+    - T: b06: gpio20
+    - G: b07: gpio21
+    - B: b09: gpio22
+  - col 2
+    - R: b11: gpio26
+    - F: b12: gpio27
+    - V: b14: gpio28
+  - col 3
+    - E: t01: gpio15
+    - D: t02: gpio14
+    - C: t04: gpio13
+  - col 4
+    - W: t05: gpio12
+    - S: t06: gpio11
+    - X: t07: gpio10
+  - col 5
+    - Q: t09: gpio9 
+    - A: t10: gpio8
+    - Z: t11: gpio7
+  - col 6
+    - TAB: t12: gpio6
+    - LAYR: t14: gpio5
+    - SHIFT: t15: gpio4
+  - mods
+    - t16: gpio3
+    - b04: gpio18
+    - b05: gpio19
+  - UART
+    - ??? b02: gpio17/UART0-RX
+  - UNUSED
+    - ??? b01: gpio16/UART0-TX (unused)
+    - xxx: gpio0
+    - xxx: gpio1
+    - xxx: gpio2
+
+Non-Alpha Keys:
+- [ ] Backspace
+- [ ] Space
+- [ ] Enter
+- [ ] Ctrl
+- [ ] Alt
+- [ ] GUI
+- [ ] NUMBERS (Layer)
+- [ ] FKeys (Layer)
+- [ ] Mouse (layer)
+- [ ] PwrUser (layer)
+- [ ] Tab
+- [x] "\|"
+- [ ] Shift

@@ -1,9 +1,34 @@
-Homerow mods:
-- CTRL: lots of hand alternation for cursor movement keys
-- what about skipping home row mods for ctrl and 'f' keys? I use/hold CTRL a TON.
-- double tapping the mod key gets it 'repeating' - a small adjustment
-- Repeating of home-row mod keys awkward - requires an extra press
+Practice new combos:
+- ctrl - f repeats
+- meta - backspace
+- meta - <
+- meta - >
+- meta - x
+- meta - .
+- meta - ,
+- meta - \
+- meta - spc
+- meta - #
+- meta - @
+- use right hand to get num layer for parens, braces, etc
+- '+' is '=' with shift modifier ONLY
+- '\ |' is on num layer ONLY
+- back-tick and grave are on upper-left key of number layer ONLY
+- added quote to number layer under backslash (old mapping still there)
+- Added caps, tab, and esc to num layer: x, c, v keys (old still there)
+- double-tap home-row keys to get repeat
 
+Homerow mods:
+- CTRL: lots of hand alternation for cursor movement keys - so keep old binding
+- Map other layers to t, g, b keys like home-row mods?
+- double tapping the mod key gets it 'repeating' - a small adjustment
+- ** Learn to repeat home-row mod keys by tapping them once and holding. Awkward at first.
+- if we use shift keys on home-row mods, can use the shift keys for other stuff
+- do mod keys come undone if we switch layers? Pivotal issue.
+- could we do without pinky stretch keys with home-row mods? quote and tab would be the biggest loss maybe.
+  - perhaps get rid of tab and backslash as they're the furthest stretch@
+- need a meh key somewhere
+- don't overload space, enter, or backspace
 
 # ,-----.-----.-----.-----.-----.-----.        ,-----.-----.-----.-----.-----.-----.
 # |     |     |     |     |     |     |        |     |     |     |     |     |     |

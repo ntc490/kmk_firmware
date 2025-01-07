@@ -20,6 +20,7 @@ class KeyType:
     SIMPLE = const(0)
     MODIFIER = const(1)
     CONSUMER = const(2)
+    MOUSE = const(3)
 
 
 FIRST_KMK_INTERNAL_KEY = const(1000)
@@ -31,6 +32,30 @@ ALL_NUMBERS = '1234567890'
 ALL_NUMBER_ALIASES = tuple(f'N{x}' for x in ALL_NUMBERS)
 
 debug = Debug(__name__)
+
+
+class Axis:
+    def __init__(self, code: int) -> None:
+        self.code = code
+        self.delta = 0
+
+    def __repr__(self) -> str:
+        return f'Axis(code={self.code}, delta={self.delta})'
+
+    def move(self, keyboard: Keyboard, delta: int):
+        self.delta += delta
+        if self.delta:
+            keyboard.axes.add(self)
+            keyboard.hid_pending = True
+        else:
+            keyboard.axes.discard(self)
+
+
+class AX:
+    P = Axis(3)
+    W = Axis(2)
+    X = Axis(0)
+    Y = Axis(1)
 
 
 def maybe_make_key(
@@ -340,11 +365,13 @@ def maybe_make_unicode_key(candidate: str) -> Optional[Key]:
 def maybe_make_firmware_key(candidate: str) -> Optional[Key]:
     keys = (
         ((('BLE_REFRESH',), handlers.ble_refresh)),
+        ((('BLE_DISCONNECT',), handlers.ble_disconnect)),
         ((('BOOTLOADER',), handlers.bootloader)),
         ((('DEBUG', 'DBG'), handlers.debug_pressed)),
         ((('HID_SWITCH', 'HID'), handlers.hid_switch)),
         ((('RELOAD', 'RLD'), handlers.reload)),
         ((('RESET',), handlers.reset)),
+        ((('ANY',), handlers.any_pressed)),
     )
 
     for names, handler in keys:
@@ -410,7 +437,7 @@ class KeyAttrDict:
 
     def __iter__(self):
         for partition in self.__cache:
-            for name in partition.__iter__():
+            for name in partition:
                 yield name
 
     def __setitem__(self, name: str, key: Key):
@@ -450,7 +477,9 @@ class KeyAttrDict:
                 break
 
         if not maybe_key:
-            raise ValueError(f'Invalid key: {name}')
+            if debug.enabled:
+                debug(f'Invalid key: {name}')
+            return KC.NO
 
         if debug.enabled:
             debug(f'{name}: {maybe_key}')
@@ -688,6 +717,10 @@ class ConsumerKey(Key):
     pass
 
 
+class MouseKey(Key):
+    pass
+
+
 def make_key(
     code: Optional[int] = None,
     names: Tuple[str, ...] = tuple(),  # NOQA
@@ -718,6 +751,8 @@ def make_key(
         constructor = ModifierKey
     elif type == KeyType.CONSUMER:
         constructor = ConsumerKey
+    elif type == KeyType.MOUSE:
+        constructor = MouseKey
     else:
         raise ValueError('Unrecognized key type')
 
@@ -750,6 +785,10 @@ def make_consumer_key(*args, **kwargs) -> Key:
     return make_key(*args, **kwargs, type=KeyType.CONSUMER)
 
 
+def make_mouse_key(*args, **kwargs) -> Key:
+    return make_key(*args, **kwargs, type=KeyType.MOUSE)
+
+
 # Argumented keys are implicitly internal, so auto-gen of code
 # is almost certainly the best plan here
 def make_argumented_key(
@@ -767,7 +806,7 @@ def make_argumented_key(
 
         if meta:
             key = Key(
-                NEXT_AVAILABLE_KEY, meta=meta, *constructor_args, **constructor_kwargs
+                NEXT_AVAILABLE_KEY, *constructor_args, meta=meta, **constructor_kwargs
             )
 
             NEXT_AVAILABLE_KEY += 1

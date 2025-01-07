@@ -17,7 +17,7 @@ Practice new combos:
 - '\ |' is on num layer ONLY
 - back-tick and grave are on upper-left key of number layer ONLY
 - added quote to number layer under backslash (old mapping still there)
-- Added caps, tab, and esc to num layer: x, c, v keys (old still there)
+- Added caps, tab, and esc to num layer: z, x, c keys (old still there)
 - double-tap home-row keys to get repeat
 
 Homerow mods:
@@ -26,7 +26,7 @@ Homerow mods:
 - double tapping the mod key gets it 'repeating' - a small adjustment
 - ** Learn to repeat home-row mod keys by tapping them once and holding. Awkward at first.
 - if we use shift keys on home-row mods, can use the shift keys for other stuff
-- do mod keys come undone if we switch layers? Pivotal issue. Seems to work???!!!
+- do mod keys come undone if we switch layers? Pivotal issue. Seems to work???!!!@
 - could we do without pinky stretch keys with home-row mods? quote and tab would be the biggest loss maybe.
   - perhaps get rid of tab and backslash as they're the furthest stretch@
 - need a meh key somewhere

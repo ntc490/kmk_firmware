@@ -1,5 +1,19 @@
 Homerow mods:
 - CTRL: lots of hand alternation for cursor movement keys
+- what about skipping home row mods for ctrl and 'f' keys? I use/hold CTRL a TON.
+- double tapping the mod key gets it 'repeating' - a small adjustment
 - Repeating of home-row mod keys awkward - requires an extra press
+
+
+# ,-----.-----.-----.-----.-----.-----.        ,-----.-----.-----.-----.-----.-----.
+# |     |     |     |     |     |     |        |     |     |     |     |     |     |
+# |-----+-----+-----+-----+-----+-----|        |-----+-----+-----+-----+-----+-----|
+# |     |     |     |     |     |     |        |     |     |     |     |     |     |
+# |-----+-----+-----+-----+-----+-----+        |-----+-----+-----+-----+-----+-----|
+# |     |     |     |     |     |     |        |     |     |     |     |     |     |
+# `-----'-----'-----'-----'-----'-----'        `-----'-----'-----'-----'-----'-----'
+#               .-------.-------.-------.    .-------.-------.-------.
+#               |       |       |       |    |       |       |       |
+#               '-------'-------'-------'    '-------'-------'-------'
 
 

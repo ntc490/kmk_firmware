@@ -1,0 +1,5 @@
+Homerow mods:
+- CTRL: lots of hand alternation for cursor movement keys
+- Repeating of home-row mod keys awkward - requires an extra press
+
+

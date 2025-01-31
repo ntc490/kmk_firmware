@@ -89,6 +89,8 @@ SHFT_K = KC.HT(KC.K, KC.RSFT, **HOME_ROW_OPTS)
 ALT_L = KC.HT(KC.L, KC.LALT, **HOME_ROW_OPTS)
 GUI_SEMI = KC.HT(KC.SEMICOLON, KC.RGUI, **HOME_ROW_OPTS)
 
+# Home row mods for number layer left-hand
+CTRL_LP = KC.HT(KC.LCBR, KC.LCTRL, **HOME_ROW_OPTS)
 
 # --------------- Key maps ---------------
 
@@ -106,11 +108,10 @@ qwerty.right(
     NUM_LYR,    KC.ENTER,   KC.SPACE
 )
 
-# Need home-row mods on this layer, too?
-# Can we put tab and esc under strong fingers?
+# Home row mods poke through for all keys on the left-hand side
 nums.left(
     XXXXXXX,    KC.GRAVE,    XXXXXXX,    XXXXXXX,   KC.LPRN,    KC.RPRN,
-    XXXXXXX,    _______,     _______,    _______,   KC.LCBR,    KC.RCBR,
+    XXXXXXX,    _______,     _______,    _______,   CTRL_LP,    KC.RCBR,
     _______,    KC.CAPS,     KC.TAB,     KC.ESC,    KC.LBRC,    KC.RBRC,
                                          _______,   _______,    _______,
 )

@@ -78,15 +78,16 @@ NEXTWIN = KC.LGUI(KC.GRAVE)
 PWR_LYR = KC.MO(power.layer_id)
 
 # Use GASC for home-row mods
-GUI_A = KC.HT(KC.A, KC.LGUI, prefer_hold=False, repeat=HoldTapRepeat.TAP)
-ALT_S = KC.HT(KC.S, KC.LALT, prefer_hold=False, repeat=HoldTapRepeat.TAP)
-SHFT_D = KC.HT(KC.D, KC.LSFT, prefer_hold=False, repeat=HoldTapRepeat.TAP)
-CTRL_F = KC.HT(KC.F, KC.LCTRL, prefer_hold=False, repeat=HoldTapRepeat.TAP)
+HOME_ROW_OPTS = { 'prefer_hold': False, 'repeat': HoldTapRepeat.TAP }
+GUI_A = KC.HT(KC.A, KC.LGUI, **HOME_ROW_OPTS)
+ALT_S = KC.HT(KC.S, KC.LALT, **HOME_ROW_OPTS)
+SHFT_D = KC.HT(KC.D, KC.LSFT, **HOME_ROW_OPTS)
+CTRL_F = KC.HT(KC.F, KC.LCTRL, **HOME_ROW_OPTS)
 
-CTRL_J = KC.HT(KC.J, KC.RCTRL, prefer_hold=False, repeat=HoldTapRepeat.TAP)
-SHFT_K = KC.HT(KC.K, KC.RSFT, prefer_hold=False, repeat=HoldTapRepeat.TAP)
-ALT_L = KC.HT(KC.L, KC.LALT, prefer_hold=False, repeat=HoldTapRepeat.TAP)
-GUI_SEMI = KC.HT(KC.SEMICOLON, KC.RGUI, prefer_hold=False, repeat=HoldTapRepeat.TAP)
+CTRL_J = KC.HT(KC.J, KC.RCTRL, **HOME_ROW_OPTS)
+SHFT_K = KC.HT(KC.K, KC.RSFT, **HOME_ROW_OPTS)
+ALT_L = KC.HT(KC.L, KC.LALT, **HOME_ROW_OPTS)
+GUI_SEMI = KC.HT(KC.SEMICOLON, KC.RGUI, **HOME_ROW_OPTS)
 
 
 # --------------- Key maps ---------------

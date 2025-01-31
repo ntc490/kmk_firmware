@@ -2,7 +2,7 @@
 #
 # QWERTY [base layer]
 # ,-----.-----.-----.-----.-----.-----.        ,-----.-----.-----.-----.-----.-----.
-# | TAB | q   | w   | e   | r   | t   |        | y   | u   | i   | o   | p   | XXX |
+# | TAB | q   | w   | e   | r   | t   |        | y   | u   | i   | o   | p   | \ | |
 # |-----+-----+-----+-----+-----+-----|        |-----+-----+-----+-----+-----+-----|
 # | PWR | a * | s * | d * | f * | g   |        | h   | j * | k * | l * | ;:* | ' " |
 # |-----+-----+-----+-----+-----+-----+        |-----+-----+-----+-----+-----+-----|
@@ -102,7 +102,7 @@ qwerty.left(
 )
 
 qwerty.right(
-    KC.Y,       KC.U,       KC.I,       KC.O,       KC.P,       XXXXXXX,
+    KC.Y,       KC.U,       KC.I,       KC.O,       KC.P,       KC.BSLASH,
     KC.H,       CTRL_J,     SHFT_K,     ALT_L,      GUI_SEMI,   KC.QUOTE,
     KC.N,       KC.M,       KC.COMMA,   KC.DOT,     KC.SLASH,   XXXXXXX,
     NUM_LYR,    KC.ENTER,   KC.SPACE

@@ -57,7 +57,10 @@ from kmk.modules.holdtap import HoldTap, HoldTapRepeat
 
 keyboard = KMKKeyboard()
 
-keyboard.modules.extend([ Layers(), HoldTap() ])
+holdtap = HoldTap()
+holdtap.tap_time = 200
+
+keyboard.modules.extend([ Layers(), holdtap ])
 
 # --------------- Layer Objects ---------------
 
@@ -78,7 +81,7 @@ NEXTWIN = KC.LGUI(KC.GRAVE)
 PWR_LYR = KC.MO(power.layer_id)
 
 # Use GASC for home-row mods
-HOME_ROW_OPTS = { 'prefer_hold': False, 'repeat': HoldTapRepeat.TAP, 'tap_time': 200 }
+HOME_ROW_OPTS = { 'prefer_hold': False, 'repeat': HoldTapRepeat.TAP }
 GUI_A = KC.HT(KC.A, KC.LGUI, group=1, **HOME_ROW_OPTS)
 ALT_S = KC.HT(KC.S, KC.LALT, group=1, **HOME_ROW_OPTS)
 SHFT_D = KC.HT(KC.D, KC.LSFT, group=1, **HOME_ROW_OPTS)

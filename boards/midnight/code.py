@@ -79,18 +79,18 @@ PWR_LYR = KC.MO(power.layer_id)
 
 # Use GASC for home-row mods
 HOME_ROW_OPTS = { 'prefer_hold': False, 'repeat': HoldTapRepeat.TAP, 'tap_time': 200 }
-GUI_A = KC.HT(KC.A, KC.LGUI, **HOME_ROW_OPTS)
-ALT_S = KC.HT(KC.S, KC.LALT, **HOME_ROW_OPTS)
-SHFT_D = KC.HT(KC.D, KC.LSFT, **HOME_ROW_OPTS)
-CTRL_F = KC.HT(KC.F, KC.LCTRL, **HOME_ROW_OPTS)
+GUI_A = KC.HT(KC.A, KC.LGUI, group=1, **HOME_ROW_OPTS)
+ALT_S = KC.HT(KC.S, KC.LALT, group=1, **HOME_ROW_OPTS)
+SHFT_D = KC.HT(KC.D, KC.LSFT, group=1, **HOME_ROW_OPTS)
+CTRL_F = KC.HT(KC.F, KC.LCTRL, group=1, **HOME_ROW_OPTS)
 
-CTRL_J = KC.HT(KC.J, KC.RCTRL, **HOME_ROW_OPTS)
-SHFT_K = KC.HT(KC.K, KC.RSFT, **HOME_ROW_OPTS)
-ALT_L = KC.HT(KC.L, KC.LALT, **HOME_ROW_OPTS)
-GUI_SEMI = KC.HT(KC.SEMICOLON, KC.RGUI, **HOME_ROW_OPTS)
+CTRL_J = KC.HT(KC.J, KC.RCTRL, group=2, **HOME_ROW_OPTS)
+SHFT_K = KC.HT(KC.K, KC.RSFT, group=2, **HOME_ROW_OPTS)
+ALT_L = KC.HT(KC.L, KC.LALT, group=2, **HOME_ROW_OPTS)
+GUI_SEMI = KC.HT(KC.SEMICOLON, KC.RGUI, group=2, **HOME_ROW_OPTS)
 
 # Home row mods for number layer left-hand
-CTRL_LP = KC.HT(KC.LCBR, KC.LCTRL, **HOME_ROW_OPTS)
+CTRL_LP = KC.HT(KC.LCBR, KC.LCTRL, group=1, **HOME_ROW_OPTS)
 
 # --------------- Key maps ---------------
 

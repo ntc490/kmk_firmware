@@ -54,13 +54,14 @@ from kb import KMKKeyboard, Mapper42, add_keyboard_layer
 from kmk.keys import KC
 from kmk.modules.layers import Layers
 from kmk.modules.holdtap import HoldTap, HoldTapRepeat
+from kmk.modules.pedometer import Pedometer
 
 keyboard = KMKKeyboard()
 
 holdtap = HoldTap()
 holdtap.tap_time = 200
 
-keyboard.modules.extend([ Layers(), holdtap ])
+keyboard.modules.extend([ Layers(), holdtap, Pedometer() ])
 
 # --------------- Layer Objects ---------------
 

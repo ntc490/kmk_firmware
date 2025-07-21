@@ -79,8 +79,8 @@ _______ = KC.TRNS
 XXXXXXX = KC.NO
 NUM_LYR = KC.MO(nums.layer_id)
 NEXTWIN = KC.LGUI(KC.GRAVE)
-TAB_PWR = KC.HT(KC.TAB, KC.MO(power.layer_id))
 PWR_LYR = KC.MO(power.layer_id)
+TAB_PWR = KC.HT(KC.TAB, PWR_LYR)
 
 # Use GASC for home-row mods
 HOME_ROW_OPTS = { 'prefer_hold': False, 'repeat': HoldTapRepeat.TAP }

@@ -11,9 +11,9 @@ from storage import getmount
 # fmt: off
 # The right is a mirror image of the left side
 _KEY_CFG_LEFT = [
-    board.GP2,  board.GP3,  board.GP4,  board.GP5,  board.GP6,  board.GP7,
-    board.GP8,  board.GP9,  board.GP10, board.GP11, board.GP12, board.GP13,
-    board.GP14, board.GP15, board.GP16, board.GP17, board.GP18, board.GP19,
+    board.GP7,  board.GP6,  board.GP5,  board.GP4,  board.GP3,  board.GP2,
+    board.GP13, board.GP12, board.GP11, board.GP10, board.GP9,  board.GP8,
+    board.GP19, board.GP18, board.GP17, board.GP16, board.GP15, board.GP14,
                                         board.GP22, board.GP21, board.GP20,
 ]
 # Fmt: on

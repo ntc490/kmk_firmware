@@ -18,7 +18,7 @@
 # |-----+-----+-----+-----+-----+-----|        |-----+-----+-----+-----+-----+-----|
 # |     |     |     |     | {   | }   |        | - _ | 4 $ | 5 % | 6 ^ | ' " | ' " |
 # |-----+-----+-----+-----+-----+-----+        |-----+-----+-----+-----+-----+-----|
-# |     |     |     | ESC | [   | ]   |        | . > | 1 ! | 2 @ | 3 # | XXX |     |
+# |     |     |     | ESC | [   | ]   |        | . > | 1 ! | 2 @ | 3 # | XXX | CAPS|
 # `-----'-----'-----'-----'-----'-----'        `-----'-----'-----'-----'-----'-----'
 #               .-------.-------.-------.    .-------.-------.-------.
 #               |       |       |       |    |       |       |   0 ) |
@@ -116,7 +116,7 @@ qwerty.right(
 # Home row mods poke through for all keys on the left-hand side
 nums.left(
     KC.ESC,     KC.GRAVE,    XXXXXXX,    XXXXXXX,   KC.LPRN,    KC.RPRN,
-    KC.CAPS,    _______,     _______,    _______,   CTRL_LP,    KC.RCBR,
+    _______,    _______,     _______,    _______,   CTRL_LP,    KC.RCBR,
     _______,    _______,     _______,    KC.ESC,    KC.LBRC,    KC.RBRC,
                                          _______,   _______,    _______,
 )
@@ -124,7 +124,7 @@ nums.left(
 nums.right(
     KC.EQUAL,   KC.N7,      KC.N8,      KC.N9,      KC.LBRC,    KC.RBRC,
     KC.MINUS,   KC.N4,      KC.N5,      KC.N6,      KC.QUOTE,   XXXXXXX,
-    KC.DOT,     KC.N1,      KC.N2,      KC.N3,      XXXXXXX,    _______,
+    KC.DOT,     KC.N1,      KC.N2,      KC.N3,      XXXXXXX,    KC.CAPS,
     _______,    _______,    KC.N0
 )
 

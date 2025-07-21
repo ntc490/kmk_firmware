@@ -2,9 +2,9 @@
 #
 # QWERTY [base layer]
 # ,-----.-----.-----.-----.-----.-----.        ,-----.-----.-----.-----.-----.-----.
-# | TAB | q   | w   | e   | r   | t   |        | y   | u   | i   | o   | p   | \ | |
+# | ESC | q   | w   | e   | r   | t   |        | y   | u   | i   | o   | p   | \ | |
 # |-----+-----+-----+-----+-----+-----|        |-----+-----+-----+-----+-----+-----|
-# | PWR | a * | s * | d * | f * | g   |        | h   | j * | k * | l * | ;:* | ' " |
+# | TAB | a * | s * | d * | f * | g   |        | h   | j * | k * | l * | ;:* | ' " |
 # |-----+-----+-----+-----+-----+-----+        |-----+-----+-----+-----+-----+-----|
 # | SHF | z   | x   | c   | v   | b   |        | n   | m   | , < | . > | / ? | SHF |
 # `-----'-----'-----'-----'-----'-----'        `-----'-----'-----'-----'-----'-----'
@@ -16,9 +16,9 @@
 # ,-----.-----.-----.-----.-----.-----.        ,-----.-----.-----.-----.-----.-----.
 # | ESC | ` ~ | XXX | XXX | (   | )   |        | = + | 7 & | 8 * | 9 ( | [ { | ] } |
 # |-----+-----+-----+-----+-----+-----|        |-----+-----+-----+-----+-----+-----|
-# | CAPS|     |     |     | {   | }   |        | - _ | 4 $ | 5 % | 6 ^ | ' " | ' " |
+# |     |     |     |     | {   | }   |        | - _ | 4 $ | 5 % | 6 ^ | ' " | ' " |
 # |-----+-----+-----+-----+-----+-----+        |-----+-----+-----+-----+-----+-----|
-# |     |     |     | ESC | [   | ]   |        | . > | 1 ! | 2 @ | 3 # | XXX |     |
+# |     |     |     | ESC | [   | ]   |        | . > | 1 ! | 2 @ | 3 # | XXX | CAPS|
 # `-----'-----'-----'-----'-----'-----'        `-----'-----'-----'-----'-----'-----'
 #               .-------.-------.-------.    .-------.-------.-------.
 #               |       |       |       |    |       |       |   0 ) |
@@ -80,6 +80,7 @@ XXXXXXX = KC.NO
 NUM_LYR = KC.MO(nums.layer_id)
 NEXTWIN = KC.LGUI(KC.GRAVE)
 PWR_LYR = KC.MO(power.layer_id)
+TAB_PWR = KC.HT(KC.TAB, PWR_LYR)
 
 # Use GASC for home-row mods
 HOME_ROW_OPTS = { 'prefer_hold': False, 'repeat': HoldTapRepeat.TAP }
@@ -99,8 +100,8 @@ CTRL_LP = KC.HT(KC.LCBR, KC.LCTRL, group=1, **HOME_ROW_OPTS)
 # --------------- Key maps ---------------
 
 qwerty.left(
-    KC.TAB,     KC.Q,       KC.W,       KC.E,       KC.R,       KC.T,
-    PWR_LYR,    GUI_A,      ALT_S,      SHFT_D,     CTRL_F,     KC.G,
+    KC.ESC,     KC.Q,       KC.W,       KC.E,       KC.R,       KC.T,
+    TAB_PWR,    GUI_A,      ALT_S,      SHFT_D,     CTRL_F,     KC.G,
     KC.LSFT,    KC.Z,       KC.X,       KC.C,       KC.V,       KC.B,
                                         KC.BKSP,    KC.LCTRL,   NUM_LYR
 )
@@ -115,7 +116,7 @@ qwerty.right(
 # Home row mods poke through for all keys on the left-hand side
 nums.left(
     KC.ESC,     KC.GRAVE,    XXXXXXX,    XXXXXXX,   KC.LPRN,    KC.RPRN,
-    KC.CAPS,    _______,     _______,    _______,   CTRL_LP,    KC.RCBR,
+    _______,    _______,     _______,    _______,   CTRL_LP,    KC.RCBR,
     _______,    _______,     _______,    KC.ESC,    KC.LBRC,    KC.RBRC,
                                          _______,   _______,    _______,
 )
@@ -123,7 +124,7 @@ nums.left(
 nums.right(
     KC.EQUAL,   KC.N7,      KC.N8,      KC.N9,      KC.LBRC,    KC.RBRC,
     KC.MINUS,   KC.N4,      KC.N5,      KC.N6,      KC.QUOTE,   XXXXXXX,
-    KC.DOT,     KC.N1,      KC.N2,      KC.N3,      XXXXXXX,    _______,
+    KC.DOT,     KC.N1,      KC.N2,      KC.N3,      XXXXXXX,    KC.CAPS,
     _______,    _______,    KC.N0
 )
 

@@ -6,7 +6,7 @@
 # |-----+-----+-----+-----+-----+-----|        |-----+-----+-----+-----+-----+-----|
 # | TAB | a * | s * | d * | f * | g   |        | h   | j * | k * | l * | ;:* | ' " |
 # |-----+-----+-----+-----+-----+-----+        |-----+-----+-----+-----+-----+-----|
-# | SHF | z   | x   | c   | v   | b   |        | n   | m   | , < | . > | / ? | SHF |
+# | SHF | z   | x   | c   | v   | b   |        | n   | m   | , < | . > | / ? | FUNC|
 # `-----'-----'-----'-----'-----'-----'        `-----'-----'-----'-----'-----'-----'
 #               .-------.-------.-------.    .-------.-------.-------.
 #               | BKSP  |  CTR  |  NUMS |    |  NUMS | ENTER |  SPC  |
@@ -14,11 +14,11 @@
 #
 # Numbers
 # ,-----.-----.-----.-----.-----.-----.        ,-----.-----.-----.-----.-----.-----.
-# | ESC | ` ~ | XXX | XXX | (   | )   |        | = + | 7 & | 8 * | 9 ( | [ { | ] } |
+# |     | ` ~ | XXX | XXX | (   | )   |        | = + | 7 & | 8 * | 9 ( | [ { | ] } |
 # |-----+-----+-----+-----+-----+-----|        |-----+-----+-----+-----+-----+-----|
-# |     |     |     |     | {   | }   |        | - _ | 4 $ | 5 % | 6 ^ | ' " | ' " |
+# | CAPS|     |     |     | { * | }   |        | - _ | 4*$ | 5*% | 6*^ | '*" |     |
 # |-----+-----+-----+-----+-----+-----+        |-----+-----+-----+-----+-----+-----|
-# |     |     |     | ESC | [   | ]   |        | . > | 1 ! | 2 @ | 3 # | XXX | CAPS|
+# |     |     |     | ESC | [   | ]   |        | . > | 1 ! | 2 @ | 3 # |     |     |
 # `-----'-----'-----'-----'-----'-----'        `-----'-----'-----'-----'-----'-----'
 #               .-------.-------.-------.    .-------.-------.-------.
 #               |       |       |       |    |       |       |   0 ) |
@@ -68,7 +68,7 @@ keyboard.modules.extend([ Layers(), holdtap, Pedometer(), Keeper() ])
 
 qwerty = Mapper42()
 nums   = Mapper42()
-fkeys  = Mapper42() # TODO: No way to activate yet
+fkeys  = Mapper42()
 power  = Mapper42()
 #snake  = Mapper42()
 #camel  = Mapper42()
@@ -79,6 +79,7 @@ power  = Mapper42()
 _______ = KC.TRNS
 XXXXXXX = KC.NO
 NUM_LYR = KC.MO(nums.layer_id)
+FKEY_LYR = KC.MO(fkeys.layer_id)
 NEXTWIN = KC.LGUI(KC.GRAVE)
 PWR_LYR = KC.MO(power.layer_id)
 TAB_PWR = KC.HT(KC.TAB, PWR_LYR)
@@ -95,6 +96,11 @@ SHFT_K = KC.HT(KC.K, KC.RSFT, group=2, **HOME_ROW_OPTS)
 ALT_L = KC.HT(KC.L, KC.LALT, group=2, **HOME_ROW_OPTS)
 GUI_SEMI = KC.HT(KC.SEMICOLON, KC.RGUI, group=2, **HOME_ROW_OPTS)
 
+CTRL_4 = KC.HT(KC.N4, KC.RCTRL, group=2, **HOME_ROW_OPTS)
+SHFT_5 = KC.HT(KC.N5, KC.RSFT, group=2, **HOME_ROW_OPTS)
+ALT_6 = KC.HT(KC.N6, KC.LALT, group=2, **HOME_ROW_OPTS)
+GUI_QUOTE = KC.HT(KC.QUOTE, KC.RGUI, group=2, **HOME_ROW_OPTS)
+
 # Home row mods for number layer left-hand
 CTRL_LP = KC.HT(KC.LCBR, KC.LCTRL, group=1, **HOME_ROW_OPTS)
 
@@ -110,22 +116,22 @@ qwerty.left(
 qwerty.right(
     KC.Y,       KC.U,       KC.I,       KC.O,       KC.P,       KC.BSLASH,
     KC.H,       CTRL_J,     SHFT_K,     ALT_L,      GUI_SEMI,   KC.QUOTE,
-    KC.N,       KC.M,       KC.COMMA,   KC.DOT,     KC.SLASH,   KC.RSFT,
+    KC.N,       KC.M,       KC.COMMA,   KC.DOT,     KC.SLASH,   FKEY_LYR,
     NUM_LYR,    KC.ENTER,   KC.SPACE
 )
 
 # Home row mods poke through for all keys on the left-hand side
 nums.left(
-    KC.ESC,     KC.GRAVE,    XXXXXXX,    XXXXXXX,   KC.LPRN,    KC.RPRN,
-    _______,    _______,     _______,    _______,   CTRL_LP,    KC.RCBR,
+    _______,    KC.GRAVE,    XXXXXXX,    XXXXXXX,   KC.LPRN,    KC.RPRN,
+    KC.CAPS,    _______,     _______,    _______,   CTRL_LP,    KC.RCBR,
     _______,    _______,     _______,    KC.ESC,    KC.LBRC,    KC.RBRC,
                                          _______,   _______,    _______,
 )
 
 nums.right(
     KC.EQUAL,   KC.N7,      KC.N8,      KC.N9,      KC.LBRC,    KC.RBRC,
-    KC.MINUS,   KC.N4,      KC.N5,      KC.N6,      KC.QUOTE,   XXXXXXX,
-    KC.DOT,     KC.N1,      KC.N2,      KC.N3,      XXXXXXX,    KC.CAPS,
+    KC.MINUS,   CTRL_4,     SHFT_5,     ALT_6,      GUI_SEMI,   _______,
+    KC.DOT,     KC.N1,      KC.N2,      KC.N3,      _______,    _______,
     _______,    _______,    KC.N0
 )
 

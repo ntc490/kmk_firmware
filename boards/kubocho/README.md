@@ -28,3 +28,5 @@ the Kinesis Advantage, but modified with more modern thinking.
 - Remote control mode - key sequences from SSH session through HID interface
 - Config via keyboard commands
 - Chording mode for by-the-word-typing
+- Perhaps use double press of num_layer key to get to fkeys layer?
+- Use tap of shift keys to get to underscore modes

@@ -62,7 +62,8 @@ keyboard = KMKKeyboard()
 holdtap = HoldTap()
 holdtap.tap_time = 200
 
-keyboard.modules.extend([ Layers(), holdtap, Pedometer(), Keeper() ])
+#keyboard.modules.extend([ Layers(), holdtap, Pedometer(), Keeper() ])
+keyboard.modules.extend([ Layers(), holdtap, Pedometer() ])
 
 # --------------- Layer Objects ---------------
 

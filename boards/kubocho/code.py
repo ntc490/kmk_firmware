@@ -50,6 +50,8 @@
 
 
 import board
+import busio
+import adafruit_drv2605
 from kb import KMKKeyboard, Mapper42, add_keyboard_layer
 from kmk.keys import KC
 from kmk.modules.layers import Layers
@@ -62,13 +64,19 @@ keyboard = KMKKeyboard()
 class HapticHoldTap(HoldTap):
     def __init__(self):
         super().__init__()
+        self.i2c = busio.I2C(board.GP27, board.GP26)
+        self.drv = adafruit_drv2605.DRV2605(self.i2c)
 
     def ht_activate_hold(self, key, keyboard, *args, **kwargs):
-        print("buzz stuff here")
+        STRONG_CLICK = 17
+        self.drv.sequence[0] = adafruit_drv2605.Effect(STRONG_CLICK)
+        self.drv.play()
         super().ht_activate_hold(key, keyboard, *args, **kwargs)
 
     def ht_deactivate_hold(self, key, keyboard, *args, **kwargs):
-        print("unbuzz here")
+        STRONG_BUZZ = 14
+        self.drv.sequence[0] = adafruit_drv2605.Effect(STRONG_BUZZ)
+        self.drv.play()
         super().ht_deactivate_hold(key, keyboard, *args, **kwargs)
 
 

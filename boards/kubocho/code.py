@@ -59,7 +59,20 @@ from kmk.modules.keeper import Keeper
 
 keyboard = KMKKeyboard()
 
-holdtap = HoldTap()
+class HapticHoldTap(HoldTap):
+    def __init__(self):
+        super().__init__()
+
+    def ht_activate_hold(self, key, keyboard, *args, **kwargs):
+        print("buzz stuff here")
+        super().ht_activate_hold(key, keyboard, *args, **kwargs)
+
+    def ht_deactivate_hold(self, key, keyboard, *args, **kwargs):
+        print("unbuzz here")
+        super().ht_deactivate_hold(key, keyboard, *args, **kwargs)
+
+
+holdtap = HapticHoldTap()
 holdtap.tap_time = 200
 
 #keyboard.modules.extend([ Layers(), holdtap, Pedometer(), Keeper() ])

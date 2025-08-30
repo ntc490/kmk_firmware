@@ -124,7 +124,7 @@ ALT_6 = KC.HT(KC.N6, KC.LALT, group=2, **HOME_ROW_OPTS)
 GUI_QUOTE = KC.HT(KC.QUOTE, KC.RGUI, group=2, **HOME_ROW_OPTS)
 
 # Home row mods for number layer left-hand
-CTRL_LP = KC.HT(KC.LCBR, KC.LCTRL, group=1, **HOME_ROW_OPTS)
+CTRL_LB = KC.HT(KC.LCBR, KC.LCTRL, group=1, **HOME_ROW_OPTS)
 
 # --------------- Key maps ---------------
 
@@ -145,7 +145,7 @@ qwerty.right(
 # Home row mods poke through for all keys on the left-hand side
 nums.left(
     _______,    KC.GRAVE,    XXXXXXX,    XXXXXXX,   KC.LPRN,    KC.RPRN,
-    KC.CAPS,    _______,     _______,    _______,   CTRL_LP,    KC.RCBR,
+    KC.CAPS,    _______,     _______,    _______,   CTRL_LB,    KC.RCBR,
     _______,    _______,     _______,    KC.ESC,    KC.LBRC,    KC.RBRC,
                                          _______,   _______,    _______,
 )

@@ -14,7 +14,7 @@
 #
 # Numbers
 # ,-----.-----.-----.-----.-----.-----.        ,-----.-----.-----.-----.-----.-----.
-# |     | ` ~ | XXX | XXX | (   | )   |        | = + | 7 & | 8 * | 9 ( | [ { | ] } |
+# |     | ` ~ | XXX | SOS | (   | )   |        | = + | 7 & | 8 * | 9 ( | [ { | ] } |
 # |-----+-----+-----+-----+-----+-----|        |-----+-----+-----+-----+-----+-----|
 # | CAPS|     |     |     | { * | }   |        | - _ | 4*$ | 5*% | 6*^ | '*" |     |
 # |-----+-----+-----+-----+-----+-----+        |-----+-----+-----+-----+-----+-----|
@@ -53,7 +53,7 @@ import board
 import busio
 import adafruit_drv2605
 from kb import KMKKeyboard, Mapper42, add_keyboard_layer
-from kmk.keys import KC
+from kmk.keys import KC, Key, make_key
 from kmk.modules.layers import Layers
 from kmk.modules.holdtap import HoldTap, HoldTapRepeat
 from kmk.modules.pedometer import Pedometer
@@ -106,6 +106,11 @@ NEXTWIN = KC.LGUI(KC.GRAVE)
 PWR_LYR = KC.MO(power.layer_id)
 TAB_PWR = KC.HT(KC.TAB, PWR_LYR)
 
+make_key(
+    names=('SOS',),
+    on_press=lambda *args: print("SOS")
+)
+
 # Use GASC for home-row mods
 HOME_ROW_OPTS = { 'prefer_hold': False, 'repeat': HoldTapRepeat.TAP }
 GUI_A = KC.HT(KC.A, KC.LGUI, group=1, **HOME_ROW_OPTS)
@@ -144,7 +149,7 @@ qwerty.right(
 
 # Home row mods poke through for all keys on the left-hand side
 nums.left(
-    _______,    KC.GRAVE,    XXXXXXX,    XXXXXXX,   KC.LPRN,    KC.RPRN,
+    _______,    KC.GRAVE,    XXXXXXX,    KC.SOS,    KC.LPRN,    KC.RPRN,
     KC.CAPS,    _______,     _______,    _______,   CTRL_LB,    KC.RCBR,
     _______,    _______,     _______,    KC.ESC,    KC.LBRC,    KC.RBRC,
                                          _______,   _______,    _______,

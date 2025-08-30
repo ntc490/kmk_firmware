@@ -81,7 +81,7 @@ class HapticHoldTap(HoldTap):
 
 
 holdtap = HapticHoldTap()
-holdtap.tap_time = 250
+holdtap.tap_time = 200
 
 #keyboard.modules.extend([ Layers(), holdtap, Pedometer(), Keeper() ])
 keyboard.modules.extend([ Layers(), holdtap, Pedometer() ])

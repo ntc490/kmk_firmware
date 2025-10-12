@@ -124,6 +124,10 @@ def keeper_key_action():
     keeper_status = not keeper_status
     print(f"Setting keeper to {keeper_status}...")
     print(f"Pedometer is {pedometer.key_count}")
+    if keeper_status:
+        holdtap.play(83)
+    else:
+        holdtap.play(71)
     keeper.enable(keeper_status)
 
 make_key(

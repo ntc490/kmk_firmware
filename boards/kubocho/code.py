@@ -14,7 +14,7 @@
 #
 # Numbers
 # ,-----.-----.-----.-----.-----.-----.        ,-----.-----.-----.-----.-----.-----.
-# |     | ` ~ | XXX | SOS | (   | )   |        | = + | 7 & | 8 * | 9 ( | [ { | ] } |
+# |     | ` ~ | XXX |KEEP | (   | )   |        | = + | 7 & | 8 * | 9 ( | [ { | ] } |
 # |-----+-----+-----+-----+-----+-----|        |-----+-----+-----+-----+-----+-----|
 # | CAPS|     |     |     | { * | }   |        | - _ | 4*$ | 5*% | 6*^ | '*" |     |
 # |-----+-----+-----+-----+-----+-----+        |-----+-----+-----+-----+-----+-----|
@@ -94,8 +94,9 @@ class HapticHoldTap(HoldTap):
 holdtap = HapticHoldTap()
 holdtap.tap_time = 200
 keeper = Keeper()
+pedometer = Pedometer()
 
-keyboard.modules.extend([ Layers(), holdtap, Pedometer(), keeper ])
+keyboard.modules.extend([ Layers(), holdtap, pedometer, keeper ])
 
 # --------------- Layer Objects ---------------
 
@@ -117,9 +118,17 @@ NEXTWIN = KC.LGUI(KC.GRAVE)
 PWR_LYR = KC.MO(power.layer_id)
 TAB_PWR = KC.HT(KC.TAB, PWR_LYR)
 
+keeper_status = False
+def keeper_key_action():
+    global keeper_status
+    keeper_status = not keeper_status
+    print(f"Setting keeper to {keeper_status}...")
+    print(f"Pedometer is {pedometer.key_count}")
+    keeper.enable(keeper_status)
+
 make_key(
-    names=('SOS',),
-    on_press=lambda *args: print("SOS")
+    names=('KEEP',),
+    on_press=lambda *args: keeper_key_action()
 )
 
 # Use GASC for home-row mods
@@ -160,7 +169,7 @@ qwerty.right(
 
 # Home row mods poke through for all keys on the left-hand side
 nums.left(
-    _______,    KC.GRAVE,    XXXXXXX,    KC.SOS,    KC.LPRN,    KC.RPRN,
+    _______,    KC.GRAVE,    XXXXXXX,    KC.KEEP,   KC.LPRN,    KC.RPRN,
     KC.CAPS,    _______,     _______,    _______,   CTRL_LB,    KC.RCBR,
     _______,    _______,     _______,    KC.ESC,    KC.LBRC,    KC.RBRC,
                                          _______,   _______,    _______,

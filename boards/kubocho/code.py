@@ -84,12 +84,14 @@ class HapticHoldTap(HoldTap):
     def ht_activate_hold(self, key, keyboard, *args, **kwargs):
         STRONG_BUZZ = 14
         self.drv.sequence[0] = adafruit_drv2605.Effect(STRONG_BUZZ)
+        self.drv.sequence[1] = adafruit_drv2605.Effect(0)
         self.drv.play()
         super().ht_activate_hold(key, keyboard, *args, **kwargs)
 
     def ht_deactivate_hold(self, key, keyboard, *args, **kwargs):
         STRONG_CLICK = 17
         self.drv.sequence[0] = adafruit_drv2605.Effect(STRONG_CLICK)
+        self.drv.sequence[1] = adafruit_drv2605.Effect(0)
         self.drv.play()
         super().ht_deactivate_hold(key, keyboard, *args, **kwargs)
 

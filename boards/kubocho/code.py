@@ -62,25 +62,11 @@ from kmk.modules.keeper import Keeper
 
 keyboard = KMKKeyboard()
 
-class DRV2605Extended(adafruit_drv2605.DRV2605):
-    """Extended DRV2605 class with is_playing() method."""
-
-    GO_REG = 0x0C  # Register 0x0C holds the GO bit
-
-    def is_playing(self):
-        """
-        Returns True if a waveform is currently playing.
-        Checks the GO bit in register 0x0C.
-        """
-        go_val = self._read_u8(self.GO_REG)
-        return (go_val & 0x01) != 0
-
-
 class HapticHoldTap(HoldTap):
     def __init__(self):
         super().__init__()
         self.i2c = busio.I2C(board.GP27, board.GP26)
-        self.drv = DRV2605Extended(self.i2c)
+        self.drv = adafruit_drv2605.DRV2605(self.i2c)
         self.last_play_time = 0
 
     def play(self, effect):
